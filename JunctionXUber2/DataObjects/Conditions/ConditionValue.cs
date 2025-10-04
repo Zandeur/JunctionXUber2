@@ -10,32 +10,64 @@ namespace JunctionXUber2.DataObjects
     {
         public enum ConditionType
         {
+            timeOfDay,
+        }
+
+        public enum WeatherType
+        {
             weatherClear,
             weatherRain,
             weatherSnow,
+        }
+
+        public enum CityType
+        {
             city1,
             city2,
             city3,
             city4,
             city5,
+        }
+
+        public enum DistanceType
+        {
             distance3,
             distance37,
             distance710,
             distance10,
-            timeOfDay,
         }
 
         public double cancellationChance { get; set; }
         public double euroPerHour { get; set; }
         public double expectedWaitingTime { get; set; }
-        public ConditionType type { get; set; }
 
-        public ConditionValue(double cancellationChance, double euroPerHour, double expectedWaitingTime, ConditionType type) 
+        public WeatherType weatherType { get; set; }
+        public CityType cityType { get; set; }
+        public DistanceType distanceType { get; set; }
+
+        public void SetBaseValues(double cancellationChance, double euroPerHour, double expectedWaitingTime)
         {
             this.cancellationChance = cancellationChance;
-            this.euroPerHour= euroPerHour;
+            this.euroPerHour = euroPerHour;
             this.expectedWaitingTime = expectedWaitingTime;
-            this.type = type;
+        }
+
+        public ConditionValue(double cancellationChance, double euroPerHour, double expectedWaitingTime, WeatherType weatherType)
+        {
+            SetBaseValues(cancellationChance, euroPerHour, expectedWaitingTime);
+            this.weatherType = weatherType;
+        }
+
+        public ConditionValue(double cancellationChance, double euroPerHour, double expectedWaitingTime, CityType cityType)
+        {
+            SetBaseValues(cancellationChance, euroPerHour, expectedWaitingTime);
+            this.cityType = cityType;
+        }
+
+        public ConditionValue(double cancellationChance, double euroPerHour, double expectedWaitingTime, DistanceType distanceType)
+        {
+            SetBaseValues(cancellationChance, euroPerHour, expectedWaitingTime);
+            this.distanceType = distanceType;
         }
     }
 }
