@@ -15,29 +15,33 @@ namespace JunctionXUber2.Handlers
     {
         private readonly string filePath = $"{Application.StartupPath}\\Resources\\uber_hackathon_v2_mock_data.xlsx";
 
-        public ExcelReader()
-        {
-
-        }
-
-        public Dataworksheets GetWorksheets()
+        public Dataworksheets GetWorksheets(string userId)
         {
             Dataworksheets dataWorksheet = new Dataworksheets();
 
-            dataWorksheet.rides_trips = GetDataworskheet("rides_trips");
-            dataWorksheet.earnings_daily = GetDataworskheet("earnings_daily");
-            dataWorksheet.surge_by_hour = GetDataworskheet("surge_by_hour");
-            dataWorksheet.cancellation_rate = GetDataworskheet("cancellation_rates");
-            dataWorksheet.heatmap = GetDataworskheet("heatmap");
-            dataWorksheet.weather_daily = GetDataworskheet("weather_daily");
+            dataWorksheet.rides_trips = GetDataworskheet("rides_trips", userId);
+            dataWorksheet.earnings_daily = GetDataworskheet("earnings_daily", userId);
+            dataWorksheet.surge_by_hour = GetDataworskheet("surge_by_hour", userId);
+            dataWorksheet.cancellation_rate = GetDataworskheet("cancellation_rates", userId);
+            dataWorksheet.heatmap = GetDataworskheet("heatmap", userId);
+            dataWorksheet.weather_daily = GetDataworskheet("weather_daily", userId);
 
             return dataWorksheet;
         }
 
-        private DataWorksheet GetDataworskheet(string worksheetName)
+        private DataWorksheet GetDataworskheet(string worksheetName, string userId)
         {
             DataTable dt = LoadExcelToDataTable(filePath, worksheetName);
             List<Dictionary<string, string>> data = DataTableHandler.ConvertDataTableToDictionary(dt);
+            data = data.Where(row =>
+            {
+                if (row.ContainsKey("user_id"))
+                {
+                    return row["driver_id"].Equals(userId);
+                }
+                return true;
+            }).ToList();
+
             List<RowData> rowDatas = data.Select(row => new RowData(row)).ToList();
             return new DataWorksheet(worksheetName, rowDatas);
         }
