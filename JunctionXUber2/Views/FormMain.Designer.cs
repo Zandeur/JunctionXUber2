@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -52,7 +49,6 @@
             this.textBoxUserId = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.tabSelectorMain = new MaterialSkin.Controls.MaterialTabSelector();
-            this.optimalchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -64,7 +60,6 @@
             this.tabPage4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.optimalchart)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -101,7 +96,6 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.optimalchart, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelOptimalSuggestion, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -165,11 +159,11 @@
             // 
             // chartWeather
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartWeather.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chartWeather.ChartAreas.Add(chartArea1);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartWeather.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chartWeather.Legends.Add(legend1);
             this.chartWeather.Location = new System.Drawing.Point(3, 22);
             this.chartWeather.Name = "chartWeather";
             series1.ChartArea = "ChartArea1";
@@ -333,23 +327,6 @@
             this.tabSelectorMain.TabIndex = 1;
             this.tabSelectorMain.Text = "materialTabSelector1";
             // 
-            // optimalchart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.optimalchart.ChartAreas.Add(chartArea1);
-            this.optimalchart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.optimalchart.Legends.Add(legend1);
-            this.optimalchart.Location = new System.Drawing.Point(3, 22);
-            this.optimalchart.Name = "optimalchart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.optimalchart.Series.Add(series1);
-            this.optimalchart.Size = new System.Drawing.Size(818, 301);
-            this.optimalchart.TabIndex = 2;
-            this.optimalchart.Text = "chart1";
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -375,7 +352,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.optimalchart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -399,6 +375,5 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MaterialSkin.Controls.MaterialLabel labelDistanceSuggestion;
-        private System.Windows.Forms.DataVisualization.Charting.Chart optimalchart;
     }
 }
