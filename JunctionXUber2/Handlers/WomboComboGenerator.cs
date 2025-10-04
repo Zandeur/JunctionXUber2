@@ -10,7 +10,7 @@ namespace JunctionXUber2.Handlers
 {
     internal class WomboComboGenerator
     {
-        public WomboCombo GetOptimalCombination(
+        public List<WomboCombo> GetOptimalCombination(
             List<RowData> trips,
             DataWorksheet weather_daily,
             ConditionValue.ConditionType? filterWeather = null,
@@ -63,8 +63,7 @@ namespace JunctionXUber2.Handlers
                     Distance = g.Key.Distance,
                     AvgEarningsPerHour = g.Average(x => x.EarningsPerHour)
                 })
-                .OrderByDescending(c => c.AvgEarningsPerHour)
-                .FirstOrDefault();
+                .OrderByDescending(c => c.AvgEarningsPerHour).ToList();
 
             return optimalCombo;
         }
