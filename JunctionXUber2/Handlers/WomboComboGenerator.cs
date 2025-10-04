@@ -105,15 +105,15 @@ namespace JunctionXUber2.Handlers
 
             switch (city)
             {
-                case "city1":
+                case "1":
                     return ConditionValue.ConditionType.city1;
-                case "city2":
+                case "2":
                     return ConditionValue.ConditionType.city2;
-                case "city3":
+                case "3":
                     return ConditionValue.ConditionType.city3;
-                case "city4":
+                case "4":
                     return ConditionValue.ConditionType.city4;
-                case "city5":
+                case "5":
                     return ConditionValue.ConditionType.city5;
                 default:
                     return ConditionValue.ConditionType.city1;
