@@ -79,7 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataObjects\Conditions\ConditionValue.cs" />
-    <Compile Include="DataObjects\Conditions\WeatherTypes.cs" />
     <Compile Include="DataObjects\DataWorksheet.cs" />
     <Compile Include="DataObjects\Dataworksheets.cs" />
     <Compile Include="DataObjects\Recommendation.cs" />

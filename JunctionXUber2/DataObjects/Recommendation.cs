@@ -8,10 +8,11 @@ namespace JunctionXUber2.DataObjects
 {
     internal class Recommendation
     {
-        public double cancellationChance;
-        public double euroPerHour;
-        public double expectedWaitingTime;
+        public List<ConditionValue> sortedConditionValues;
 
-        public ConditionValue conditionValue;
+        public Recommendation(List<ConditionValue> sortedConditionValues)
+        {
+            this.sortedConditionValues = sortedConditionValues;
+        }
     }
 }
