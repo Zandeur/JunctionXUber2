@@ -81,10 +81,14 @@ namespace JunctionXUber2.Views
             WomboComboGenerator womboComboGenerator = new WomboComboGenerator();
             DataWorksheet rides_trips = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips);
             DataWorksheet weather = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily);
-            WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas, weather);
-            if (womboCombo == null) return;
+            List<WomboCombo> womboComboList = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas, weather);
+            if (womboComboList == null || womboComboList.Count() == 0) return;
+            WomboCombo womboCombo = womboComboList.FirstOrDefault();
+
+            graphConverter.SetOptimalDataPoints(optimalchart1.Series.First(), rides_trips, weather, womboCombo);
 
             labelOptimalSuggestion.Text = enumConverter.GetOptimalSuggestion(defaultOptimalString, womboCombo);
+
         }
 
         private void UpdateWeatherRecommendation()
@@ -107,18 +111,5 @@ namespace JunctionXUber2.Views
             labelCitySuggestion.Text = enumConverter.GetOptimalCity(defaultCityLabelString, optimalCityCondition);
         }
 
-        private void UpdateDistanceRecommendation()
-        {
-            RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
-            Recommendation distanceRecommendation = recommendationGenerator.GetDistanceRecommendations(dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips));
-
-            ConditionValue optimalDistanceCondition = distanceRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
-            labelDistanceSuggestion.Text = enumConverter.GetOptimalDistance(defaultDistanceString, optimalDistanceCondition);
-        }
-
-        private void FormMain_Resize(object sender, EventArgs e)
-        {
-            tabSelectorMain.Size = new Size(this.Width, tabSelectorMain.Height);
-        }
     }
 }
