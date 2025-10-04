@@ -13,7 +13,11 @@ namespace JunctionXUber2.DataObjects
             weatherClear,
             weatherRain,
             weatherSnow,
-            city,
+            city1,
+            city2,
+            city3,
+            city4,
+            city5,
             distance,
             timeOfDay,
         }
