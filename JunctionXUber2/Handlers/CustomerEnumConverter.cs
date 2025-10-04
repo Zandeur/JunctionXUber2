@@ -33,6 +33,19 @@ namespace JunctionXUber2.Handlers
             }
         }
 
+        private string ConvertCity(ConditionValue.ConditionType city)
+        {
+            switch (city)
+            {
+                case ConditionValue.ConditionType.city1: return "city 1";
+                case ConditionValue.ConditionType.city2: return "city 2";
+                case ConditionValue.ConditionType.city3: return "city 3";
+                case ConditionValue.ConditionType.city4: return "city 4";
+                case ConditionValue.ConditionType.city5: return "city 5";
+                default: return "-";
+            }
+        }
+
         public string GetOptimalSuggestion(string defaultText, WomboCombo womboCombo)
         {
             string newLabelText = defaultText.Replace("[weather]", ConvertWeahter(womboCombo.Weather));
@@ -45,6 +58,11 @@ namespace JunctionXUber2.Handlers
         {
             string newLabelText = defaultText.Replace("[money]", weatherCondition.euroPerHour.ToString("F2"));
             return newLabelText.Replace("[weather]", ConvertWeahter(weatherCondition.type));
+        }
+        public string GetOptimalCity(string defaultText, ConditionValue cityCondition)
+        {
+            string newLabelText = defaultText.Replace("[money]", cityCondition.euroPerHour.ToString("F2"));
+            return newLabelText.Replace("[city]", ConvertCity(cityCondition.type));
         }
     }
 }
