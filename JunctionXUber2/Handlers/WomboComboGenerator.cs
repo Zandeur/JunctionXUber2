@@ -10,7 +10,7 @@ namespace JunctionXUber2.Handlers
 {
     internal class WomboComboGenerator
     {
-        public static WomboCombo GetOptimalCombination(
+        public WomboCombo GetOptimalCombination(
             List<RowData> trips,
             ConditionValue.ConditionType? filterWeather = null,
             ConditionValue.ConditionType? filterCity = null,
@@ -67,7 +67,8 @@ namespace JunctionXUber2.Handlers
 
             return optimalCombo;
         }
-        private static ConditionValue.ConditionType MapToWeather(RowData trip)
+
+        private  ConditionValue.ConditionType MapToWeather(RowData trip)
         {
             string weather = trip.data["weather"].ToString().ToLower();
 
@@ -84,7 +85,7 @@ namespace JunctionXUber2.Handlers
             }
         }
 
-        private static ConditionValue.ConditionType MapToCity(RowData trip)
+        private ConditionValue.ConditionType MapToCity(RowData trip)
         {
             string city = trip.data["city"].ToString().ToLower();
 
@@ -105,7 +106,7 @@ namespace JunctionXUber2.Handlers
             }
         }
 
-        private static ConditionValue.ConditionType MapToDistance(RowData trip)
+        private ConditionValue.ConditionType MapToDistance(RowData trip)
         {
             double dist = double.Parse(trip.data["distance_km"]);
             if (dist < 3) return ConditionValue.ConditionType.distance3;
