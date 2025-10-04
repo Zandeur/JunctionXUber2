@@ -10,7 +10,7 @@ namespace JunctionXUber2.Handlers
 {
     internal class CustomerEnumConverter
     {
-        private string ConvertDistance(ConditionValue.ConditionType distance)
+        public string ConvertDistance(ConditionValue.ConditionType distance)
         {
             switch(distance)
             {
@@ -22,7 +22,7 @@ namespace JunctionXUber2.Handlers
             }
         }
 
-        private string ConvertWeahter(ConditionValue.ConditionType weather)
+        public string ConvertWeahter(ConditionValue.ConditionType weather)
         {
             switch(weather)
             {
@@ -33,7 +33,7 @@ namespace JunctionXUber2.Handlers
             }
         }
 
-        private string ConvertCity(ConditionValue.ConditionType city)
+        public string ConvertCity(ConditionValue.ConditionType city)
         {
             switch (city)
             {
