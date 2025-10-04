@@ -8,15 +8,27 @@ namespace JunctionXUber2.DataObjects
 {
     internal class ConditionValue
     {
-        public enum Type
+        public enum ConditionType
         {
-            weather,
+            weatherClear,
+            weatherRain,
+            weatherSnow,
             city,
             distance,
             timeOfDay,
         }
 
-        public Type type;
-        public double value;
+        public double cancellationChance;
+        public double euroPerHour;
+        public double expectedWaitingTime;
+        public ConditionType type;
+
+        public ConditionValue(double cancellationChance, double euroPerHour, double expectedWaitingTime, ConditionType type) 
+        {
+            this.cancellationChance = cancellationChance;
+            this.euroPerHour= euroPerHour;
+            this.expectedWaitingTime = expectedWaitingTime;
+            this.type = type;
+        }
     }
 }
