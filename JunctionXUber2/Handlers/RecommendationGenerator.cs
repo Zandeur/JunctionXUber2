@@ -84,7 +84,7 @@ namespace JunctionXUber2.Handlers
         {
             return rides_trips.rowDatas.FindAll(trip =>
             {
-                return trip.data["city_id"].ToString().Equals(cityType.ToString());
+                return trip.data["city_id"].ToString().Equals(CityNumber(cityType).ToString());
             });
         }
 
@@ -179,6 +179,24 @@ namespace JunctionXUber2.Handlers
                 .Count();
 
             return uniqueDays == 0 ? 0 : (double)values.Count / uniqueDays;
+        }
+        public int CityNumber(ConditionValue.ConditionType type)
+        {
+            switch (type)
+            {
+                case ConditionValue.ConditionType.city1:
+                    return 1;
+                case ConditionValue.ConditionType.city2:
+                    return 2;
+                case ConditionValue.ConditionType.city3:
+                    return 3;
+                case ConditionValue.ConditionType.city4:
+                    return 4;
+                case ConditionValue.ConditionType.city5:
+                    return 5;
+                default:
+                    return -1;
+            }
         }
     }
 }
