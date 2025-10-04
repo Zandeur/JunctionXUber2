@@ -1,4 +1,5 @@
 ﻿using JunctionXUber2.DataObjects;
+using JunctionXUber2.DataObjects.Conditions;
 using JunctionXUber2.Handlers;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,11 @@ namespace JunctionXUber2
             dataworksheets = dataWorksheetHandler.GetDataWorksheets(textBoxUserId.Text);
 
             UpdateWeatherRecommendation();
+
+            WomboComboGenerator womboComboGenerator = new WomboComboGenerator();
+            DataWorksheet rides_trips = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips);
+            WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas);
+            Console.Write("");
         }
 
         private void UpdateWeatherRecommendation()
