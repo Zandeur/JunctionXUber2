@@ -29,5 +29,10 @@ namespace JunctionXUber2
             RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
             recommendationGenerator.GetWeatherRecommendation(dataworksheets.rides_trips, dataworksheets.weather_daily);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
