@@ -27,6 +27,7 @@ namespace JunctionXUber2.Views
         private readonly string defaultOptimalString;
         private readonly string defaultWeatherLabelString;
         private readonly string defaultCityLabelString;
+        private readonly string defaultDistanceString;
 
         public FormMain()
         {
@@ -47,6 +48,7 @@ namespace JunctionXUber2.Views
             defaultOptimalString = labelOptimalSuggestion.Text;
             defaultWeatherLabelString = labelWeatherSuggestion.Text;
             defaultCityLabelString = labelCitySuggestion.Text;
+            defaultDistanceString = labelDistanceSuggestion.Text;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,6 +73,7 @@ namespace JunctionXUber2.Views
             UpdateWomboCombo();
             UpdateWeatherRecommendation();
             UpdateCityRecommendation();
+            UpdateDistanceRecommendation();
         }
 
         private void UpdateWomboCombo()
