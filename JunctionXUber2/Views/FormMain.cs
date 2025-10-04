@@ -13,9 +13,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JunctionXUber2
+namespace JunctionXUber2.Views
 {
-    public partial class Form1 : MaterialForm
+    public partial class FormMain : MaterialForm
     {
         private readonly CustomerEnumConverter enumConverter = new CustomerEnumConverter();
         private readonly GraphConverter graphConverter = new GraphConverter();
@@ -28,7 +28,7 @@ namespace JunctionXUber2
         private readonly string defaultWeatherLabelString;
         private readonly string defaultCityLabelString;
 
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
 
@@ -52,10 +52,20 @@ namespace JunctionXUber2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void textBoxUserId_TextChanged(object sender, EventArgs e)
+        {
+            RefreshUI();
         }
 
         private void buttonSelectUserId_Click(object sender, EventArgs e)
+        {
+            RefreshUI();
+        }
+
+        private void RefreshUI()
         {
             dataworksheets = dataWorksheetHandler.GetDataWorksheets(textBoxUserId.Text);
 

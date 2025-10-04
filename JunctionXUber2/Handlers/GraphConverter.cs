@@ -10,15 +10,16 @@ namespace JunctionXUber2.Handlers
 {
     internal class GraphConverter
     {
+        CustomerEnumConverter enumConverter = new CustomerEnumConverter();
+
         public void SetWeatherDataPoints(Series series, List<ConditionValue> weatherConditions)
         {
             series.Points.Clear();
-            List<ConditionValue> orderedWeatherConditions = weatherConditions.OrderBy(w => w.euroPerHour).ToList();
-
-            for (int i = 0; i < orderedWeatherConditions.Count; i++)
+            weatherConditions.OrderBy(w => w.euroPerHour).ToList().ForEach(weatherCondition =>
             {
-                series.Points.Add(i, orderedWeatherConditions[i].euroPerHour);
-            }
+                string weatherType = enumConverter.ConvertWeahter(weatherCondition.type);
+                series.Points.AddXY(weatherType, weatherCondition.euroPerHour);
+            });
         }
     }
 }
