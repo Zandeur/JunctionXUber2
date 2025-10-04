@@ -103,5 +103,10 @@ namespace JunctionXUber2.Views
             ConditionValue optimalCityCondition = cityRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
             labelCitySuggestion.Text = enumConverter.GetOptimalCity(defaultCityLabelString, optimalCityCondition);
         }
+
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            tabSelectorMain.Size = new Size(this.Width, tabSelectorMain.Height);
+        }
     }
 }
