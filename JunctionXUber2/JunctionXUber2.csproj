@@ -85,6 +85,7 @@
     <Compile Include="DataObjects\Recommendation.cs" />
     <Compile Include="DataObjects\RowData.cs" />
     <Compile Include="Handlers\DataTableHandler.cs" />
+    <Compile Include="Handlers\DataWorksheetHandler.cs" />
     <Compile Include="Handlers\ExcelReader.cs" />
     <Compile Include="Handlers\RecommendationGenerator.cs" />
     <Compile Include="Views\Form1.cs">

@@ -15,42 +15,46 @@ namespace JunctionXUber2.Handlers
     {
         private readonly string filePath = $"{Application.StartupPath}\\Resources\\uber_hackathon_v2_mock_data.xlsx";
 
-        public Dataworksheets GetWorksheets(string userId)
+        public Dataworksheets GetWorksheets(string userId = "")
         {
-            Dataworksheets dataWorksheet = new Dataworksheets();
-
-            dataWorksheet.rides_trips = GetDataworskheet("rides_trips", userId);
-            dataWorksheet.earnings_daily = GetDataworskheet("earnings_daily", userId);
-            dataWorksheet.surge_by_hour = GetDataworskheet("surge_by_hour", userId);
-            dataWorksheet.cancellation_rate = GetDataworskheet("cancellation_rates", userId);
-            dataWorksheet.heatmap = GetDataworskheet("heatmap", userId);
-            dataWorksheet.weather_daily = GetDataworskheet("weather_daily", userId);
-
-            return dataWorksheet;
+            List<DataWorksheet> worksheets = new List<DataWorksheet>()
+            {
+                GetDataworskheet(Dataworksheets.WorksheetName.rides_trips, userId),
+                GetDataworskheet(Dataworksheets.WorksheetName.earnings_daily, userId),
+                GetDataworskheet(Dataworksheets.WorksheetName.surge_by_hour, userId),
+                GetDataworskheet(Dataworksheets.WorksheetName.cancellation_rates, userId),
+                GetDataworskheet(Dataworksheets.WorksheetName.heatmap, userId),
+                GetDataworskheet(Dataworksheets.WorksheetName.weather_daily, userId),
+            };
+            return new Dataworksheets(worksheets);
         }
 
-        private DataWorksheet GetDataworskheet(string worksheetName, string userId)
+        private DataWorksheet GetDataworskheet(Dataworksheets.WorksheetName worksheetName, string userId)
         {
             DataTable dt = LoadExcelToDataTable(filePath, worksheetName);
             List<Dictionary<string, string>> data = DataTableHandler.ConvertDataTableToDictionary(dt);
-            data = data.Where(row =>
+
+            if (!string.IsNullOrEmpty(userId))
             {
-                if (row.ContainsKey("user_id"))
+                data = data.Where(row =>
                 {
-                    return row["driver_id"].Equals(userId);
-                }
-                return true;
-            }).ToList();
+                    if (row.ContainsKey("user_id"))
+                    {
+                        return row["driver_id"].Equals(userId);
+                    }
+                    return true;
+                }).ToList();
+            }
 
             List<RowData> rowDatas = data.Select(row => new RowData(row)).ToList();
             return new DataWorksheet(worksheetName, rowDatas);
         }
 
-        private DataTable LoadExcelToDataTable(string filePath, string sheetName)
+        private DataTable LoadExcelToDataTable(string filePath, Dataworksheets.WorksheetName sheetName)
         {
             using (var package = new ExcelPackage(new FileInfo(filePath)))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[sheetName];
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[sheetName.ToString()];
 
                 DataTable dataTable = new DataTable();
 

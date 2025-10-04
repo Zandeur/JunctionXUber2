@@ -14,6 +14,7 @@ namespace JunctionXUber2
 {
     public partial class Form1 : Form
     {
+        private readonly DataWorksheetHandler dataWorksheetHandler = new DataWorksheetHandler();
         private Dataworksheets dataworksheets;
 
         public Form1()
@@ -23,17 +24,18 @@ namespace JunctionXUber2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ExcelReader excelReader = new ExcelReader();
-            dataworksheets = excelReader.GetWorksheets("E10152");
 
-            RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
-            recommendationGenerator.GetWeatherRecommendations(dataworksheets.rides_trips, dataworksheets.weather_daily);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSelectUserId_Click(object sender, EventArgs e)
         {
-            ExcelReader excelReader = new ExcelReader();
-            dataworksheets = excelReader.GetWorksheets(textBoxUserId.Text);
+            dataworksheets = dataWorksheetHandler.GetDataWorksheets(textBoxUserId.Text);
+
+            RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
+            Recommendation recommendation = recommendationGenerator.GetWeatherRecommendations(dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips), dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily));
+
+            DataTable dt = DataTableHandler.ConvertEnumerable(recommendation.sortedConditionValues);
+            dataGridViewWeather.DataSource = dt;
         }
     }
 }

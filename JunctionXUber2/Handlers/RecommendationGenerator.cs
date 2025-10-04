@@ -1,5 +1,6 @@
 ﻿using JunctionXUber2.DataObjects;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,8 @@ namespace JunctionXUber2.Handlers
             List<ConditionValue> results = new List<ConditionValue>
             {
                 new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherClear),
-                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherRain),
-                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherSnow)
+                new ConditionValue(0, CalculateEarningsPerHour(rainTrips), 0, ConditionValue.ConditionType.weatherRain),
+                new ConditionValue(0, CalculateEarningsPerHour(snowTrips), 0, ConditionValue.ConditionType.weatherSnow)
             };
 
             return new Recommendation(results);
@@ -33,7 +34,28 @@ namespace JunctionXUber2.Handlers
                 string city_id = trip.data["city_id"];
                 RowData correspondingDay = weather_daily.rowDatas.FirstOrDefault(row => row.data["date"].Equals(date) && row.data["city_id"].Equals(city_id));
                 if (correspondingDay == null) return false;
-                return correspondingDay.data["weather"].ToString().Equals(weatherType.ToString());
+
+                string weatherString = null;
+                switch(weatherType)
+                {
+                    case ConditionValue.ConditionType.weatherSnow:
+                        {
+                            weatherString = "snow";
+                            break;
+                        }
+                    case ConditionValue.ConditionType.weatherRain:
+                        {
+                            weatherString = "rain";
+                            break;
+                        }
+                    case ConditionValue.ConditionType.weatherClear:
+                        {
+                            weatherString = "clear";
+                            break;
+                        }
+                }
+                if (weatherString == null) return false;
+                return correspondingDay.data["weather"].ToString().Equals(weatherString);
             });
         }
 

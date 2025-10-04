@@ -8,11 +8,26 @@ namespace JunctionXUber2.DataObjects
 {
     internal class Dataworksheets
     {
-        public DataWorksheet rides_trips;
-        public DataWorksheet earnings_daily;
-        public DataWorksheet surge_by_hour;
-        public DataWorksheet cancellation_rate;
-        public DataWorksheet heatmap;
-        public DataWorksheet weather_daily;
+        public enum WorksheetName
+        {
+            rides_trips,
+            earnings_daily,
+            surge_by_hour,
+            cancellation_rates,
+            heatmap,
+            weather_daily,
+        }
+
+        public List<DataWorksheet> dataworksheets;
+
+        public Dataworksheets(List<DataWorksheet> dataworksheets)
+        {
+            this.dataworksheets = dataworksheets;
+        }
+
+        public DataWorksheet GetDataWorksheetWithName(WorksheetName worksheetName)
+        {
+            return dataworksheets.First(w => w.name == worksheetName);
+        }
     }
 }

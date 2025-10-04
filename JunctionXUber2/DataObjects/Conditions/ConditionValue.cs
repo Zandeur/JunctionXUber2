@@ -22,10 +22,10 @@ namespace JunctionXUber2.DataObjects
             timeOfDay,
         }
 
-        public double cancellationChance;
-        public double euroPerHour;
-        public double expectedWaitingTime;
-        public ConditionType type;
+        public double cancellationChance { get; set; }
+        public double euroPerHour { get; set; }
+        public double expectedWaitingTime { get; set; }
+        public ConditionType type { get; set; }
 
         public ConditionValue(double cancellationChance, double euroPerHour, double expectedWaitingTime, ConditionType type) 
         {

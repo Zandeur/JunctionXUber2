@@ -8,10 +8,10 @@ namespace JunctionXUber2.DataObjects
 {
     internal class DataWorksheet
     {
-        public string name;
+        public Dataworksheets.WorksheetName name;
         public List<RowData> rowDatas;
 
-        public DataWorksheet(string name, List<RowData> rowDatas)
+        public DataWorksheet(Dataworksheets.WorksheetName name, List<RowData> rowDatas)
         {
             this.name = name;
             this.rowDatas = rowDatas;
