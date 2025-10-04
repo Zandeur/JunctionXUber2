@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -78,7 +78,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(830, 343);
@@ -116,7 +116,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(830, 343);
@@ -153,11 +153,11 @@
             // 
             // chartWeather
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartWeather.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chartWeather.ChartAreas.Add(chartArea1);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartWeather.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chartWeather.Legends.Add(legend1);
             this.chartWeather.Location = new System.Drawing.Point(3, 22);
             this.chartWeather.Name = "chartWeather";
             series2.ChartArea = "ChartArea1";
@@ -171,7 +171,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(830, 343);
             this.tabPage3.TabIndex = 2;
@@ -200,9 +200,9 @@
             this.labelCitySuggestion.Location = new System.Drawing.Point(3, 0);
             this.labelCitySuggestion.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCitySuggestion.Name = "labelCitySuggestion";
-            this.labelCitySuggestion.Size = new System.Drawing.Size(571, 19);
+            this.labelCitySuggestion.Size = new System.Drawing.Size(540, 19);
             this.labelCitySuggestion.TabIndex = 0;
-            this.labelCitySuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather]";
+            this.labelCitySuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [city]";
             // 
             // tableLayoutPanelMain
             // 
