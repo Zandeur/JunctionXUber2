@@ -67,7 +67,7 @@ namespace JunctionXUber2.Views
 
         private void RefreshUI()
         {
-            dataworksheets = dataWorksheetHandler.GetDataWorksheets(textBoxUserId.Text);
+            dataworksheets = dataWorksheetHandler.GetDataWorksheets($"E{textBoxUserId.Text}");
 
             UpdateWomboCombo();
             UpdateWeatherRecommendation();

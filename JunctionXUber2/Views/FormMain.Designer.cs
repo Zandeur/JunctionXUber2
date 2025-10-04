@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.textBoxUserId = new MaterialSkin.Controls.MaterialTextBox();
             this.buttonSetUserId = new MaterialSkin.Controls.MaterialButton();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -45,7 +45,9 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCitySuggestion = new MaterialSkin.Controls.MaterialLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBoxUserId = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -100,7 +102,7 @@
             // 
             // materialTabControl1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.materialTabControl1, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.materialTabControl1, 3);
             this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Controls.Add(this.tabPage3);
@@ -257,16 +259,19 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.Controls.Add(this.materialTabControl1, 1, 2);
+          
             this.tableLayoutPanel1.Controls.Add(this.textBoxUserId, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonSetUserId, 2, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 143);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Controls.Add(this.materialLabel1, 1, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 116);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
@@ -275,6 +280,37 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1211, 599);
             this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // textBoxUserId
+            // 
+            this.textBoxUserId.AnimateReadOnly = false;
+            this.textBoxUserId.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.textBoxUserId.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBoxUserId.Depth = 0;
+            this.textBoxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxUserId.HideSelection = true;
+            this.textBoxUserId.LeadingIcon = null;
+            this.textBoxUserId.LeaveOnEnterKey = true;
+            this.textBoxUserId.Location = new System.Drawing.Point(115, 28);
+            this.textBoxUserId.MaxLength = 32767;
+            this.textBoxUserId.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxUserId.Name = "textBoxUserId";
+            this.textBoxUserId.PasswordChar = '\0';
+            this.textBoxUserId.PrefixSuffix = MaterialSkin.Controls.MaterialTextBox2.PrefixSuffixTypes.Prefix;
+            this.textBoxUserId.PrefixSuffixText = "E";
+            this.textBoxUserId.ReadOnly = false;
+            this.textBoxUserId.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxUserId.SelectedText = "";
+            this.textBoxUserId.SelectionLength = 0;
+            this.textBoxUserId.SelectionStart = 0;
+            this.textBoxUserId.ShortcutsEnabled = true;
+            this.textBoxUserId.Size = new System.Drawing.Size(250, 48);
+            this.textBoxUserId.TabIndex = 3;
+            this.textBoxUserId.TabStop = false;
+            this.textBoxUserId.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxUserId.TrailingIcon = null;
+            this.textBoxUserId.UseSystemPasswordChar = false;
+            this.textBoxUserId.TextChanged += new System.EventHandler(this.textBoxUserId_TextChanged);
             // 
             // materialTabSelector1
             // 
@@ -286,15 +322,28 @@
             this.materialTabSelector1.Margin = new System.Windows.Forms.Padding(0);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1240, 60);
+            this.materialTabSelector1.Size = new System.Drawing.Size(914, 49);
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(28, 25);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(81, 56);
+            this.materialLabel1.TabIndex = 4;
+            this.materialLabel1.Text = "User id:";
+            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1227, 772);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(914, 610);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.materialTabSelector1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -319,8 +368,6 @@
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialButton buttonSetUserId;
-        private MaterialSkin.Controls.MaterialTextBox textBoxUserId;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -334,5 +381,7 @@
         private MaterialSkin.Controls.MaterialLabel labelCitySuggestion;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartWeather;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
+        private MaterialSkin.Controls.MaterialTextBox2 textBoxUserId;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
