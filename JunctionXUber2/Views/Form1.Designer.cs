@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,7 +66,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(12, 6);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(928, 527);
+            this.tabControl1.Size = new System.Drawing.Size(922, 460);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -76,7 +76,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(920, 490);
+            this.tabPage1.Size = new System.Drawing.Size(914, 423);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Optimal suggestion";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -89,18 +89,21 @@
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 486);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(910, 419);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // labelOptimalSuggestion
             // 
             this.labelOptimalSuggestion.AutoSize = true;
+            this.labelOptimalSuggestion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelOptimalSuggestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOptimalSuggestion.Location = new System.Drawing.Point(3, 0);
             this.labelOptimalSuggestion.Name = "labelOptimalSuggestion";
-            this.labelOptimalSuggestion.Size = new System.Drawing.Size(869, 62);
+            this.labelOptimalSuggestion.Padding = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.labelOptimalSuggestion.Size = new System.Drawing.Size(904, 82);
             this.labelOptimalSuggestion.TabIndex = 0;
             this.labelOptimalSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather] in [" +
     "city], making [distance]km long trips";
@@ -113,7 +116,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(920, 490);
+            this.tabPage2.Size = new System.Drawing.Size(914, 423);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Weather";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -130,23 +133,23 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(916, 486);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(910, 419);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(3, 85);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(910, 398);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(904, 331);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
             // 
@@ -158,7 +161,7 @@
             this.labelWeatherSuggestion.Location = new System.Drawing.Point(3, 10);
             this.labelWeatherSuggestion.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
-            this.labelWeatherSuggestion.Size = new System.Drawing.Size(910, 62);
+            this.labelWeatherSuggestion.Size = new System.Drawing.Size(904, 62);
             this.labelWeatherSuggestion.TabIndex = 3;
             this.labelWeatherSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather]";
             this.labelWeatherSuggestion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -204,14 +207,14 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxUserId, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonSelectUserId, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 64);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(982, 609);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(976, 542);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // Form1
