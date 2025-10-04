@@ -36,8 +36,10 @@
             this.textBoxUserId = new System.Windows.Forms.TextBox();
             this.buttonSelectUserId = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelWeatherSuggestion = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +83,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labelWeatherSuggestion);
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
@@ -141,6 +144,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(982, 609);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
+            // labelWeatherSuggestion
+            // 
+            this.labelWeatherSuggestion.AutoSize = true;
+            this.labelWeatherSuggestion.Location = new System.Drawing.Point(20, 22);
+            this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
+            this.labelWeatherSuggestion.Size = new System.Drawing.Size(461, 18);
+            this.labelWeatherSuggestion.TabIndex = 1;
+            this.labelWeatherSuggestion.Text = "You have earned the most money ($[money]/h) when it was [weather]";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +165,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -169,6 +183,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label labelOptimalSuggestion;
+        private System.Windows.Forms.Label labelWeatherSuggestion;
     }
 }
 
