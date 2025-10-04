@@ -1,5 +1,4 @@
 ﻿using JunctionXUber2.DataObjects;
-using JunctionXUber2.DataObjects.Conditions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +37,7 @@ namespace JunctionXUber2.Handlers
 
         private double CalculateEarningsPerHour(List<RowData> trips)
         {
-            return trips.Select(trip =>
+            List<double> values =  trips.Select(trip =>
             {
                 double earning = double.Parse(trip.data["net_earnings"]);
 
@@ -52,7 +51,15 @@ namespace JunctionXUber2.Handlers
 
                 double earningsPerHour = earning / duration.TotalHours;
                 return earningsPerHour;
-            }).Average();
+            }).ToList();
+
+            if (values.Count() > 0)
+            {
+                return values.Average();
+            } else
+            {
+                return -1;
+            }
         }
     }
 }
