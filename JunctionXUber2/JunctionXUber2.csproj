@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataObjects\Conditions\ConditionValue.cs" />
+    <Compile Include="DataObjects\Conditions\WomboCombo.cs" />
     <Compile Include="DataObjects\DataWorksheet.cs" />
     <Compile Include="DataObjects\Dataworksheets.cs" />
     <Compile Include="DataObjects\Recommendation.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Handlers\DataWorksheetHandler.cs" />
     <Compile Include="Handlers\ExcelReader.cs" />
     <Compile Include="Handlers\RecommendationGenerator.cs" />
+    <Compile Include="Handlers\WomboComboGenerator.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
