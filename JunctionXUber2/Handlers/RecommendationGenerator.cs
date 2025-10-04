@@ -172,11 +172,13 @@ namespace JunctionXUber2.Handlers
                 DateTime startTime = DateTime.ParseExact(startString, "yyyy-MM-dd HH:mm:ss", null);
                 return startTime;
             }).ToList();
+
             int uniqueDays = values
-                                .Select(t => DateTime.Parse(t).Date) 
+                                .Select(t => t.Date) 
                                 .Distinct()                          
                                 .Count();
 
+            if (uniqueDays == 0) return 0;
             return values.Count() / uniqueDays;
         }
     }
