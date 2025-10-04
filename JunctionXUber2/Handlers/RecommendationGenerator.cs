@@ -12,21 +12,21 @@ namespace JunctionXUber2.Handlers
     {
         public Recommendation GetWeatherRecommendations(DataWorksheet rides_trips, DataWorksheet weather_daily)
         {
-            List<RowData> clearTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.ConditionType.weatherClear);
-            List<RowData> rainTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.ConditionType.weatherRain);
-            List<RowData> snowTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.ConditionType.weatherSnow);
+            List<RowData> clearTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.WeatherType.weatherClear);
+            List<RowData> rainTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.WeatherType.weatherRain);
+            List<RowData> snowTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.WeatherType.weatherSnow);
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(CalculateAverageTips(clearTrips), CalculateEarningsPerHour(clearTrips), CalculateTripsPerDay(clearTrips), ConditionValue.ConditionType.weatherClear),
-                new ConditionValue(CalculateAverageTips(rainTrips), CalculateEarningsPerHour(rainTrips), CalculateTripsPerDay(rainTrips), ConditionValue.ConditionType.weatherRain),
-                new ConditionValue(CalculateAverageTips(snowTrips), CalculateEarningsPerHour(snowTrips), CalculateTripsPerDay(snowTrips), ConditionValue.ConditionType.weatherSnow)
+                new ConditionValue(CalculateAverageTips(clearTrips), CalculateEarningsPerHour(clearTrips), CalculateTripsPerDay(clearTrips), ConditionValue.WeatherType.weatherClear),
+                new ConditionValue(CalculateAverageTips(rainTrips), CalculateEarningsPerHour(rainTrips), CalculateTripsPerDay(rainTrips), ConditionValue.WeatherType.weatherRain),
+                new ConditionValue(CalculateAverageTips(snowTrips), CalculateEarningsPerHour(snowTrips), CalculateTripsPerDay(snowTrips), ConditionValue.WeatherType.weatherSnow)
             };
 
             return new Recommendation(results);
         }
 
-        private List<RowData> GetAllRidesWithWeather(DataWorksheet rides_trips, DataWorksheet weather_daily, ConditionValue.ConditionType weatherType)
+        private List<RowData> GetAllRidesWithWeather(DataWorksheet rides_trips, DataWorksheet weather_daily, ConditionValue.WeatherType weatherType)
         {
             return rides_trips.rowDatas.FindAll(trip =>
             {
@@ -38,17 +38,17 @@ namespace JunctionXUber2.Handlers
                 string weatherString = null;
                 switch(weatherType)
                 {
-                    case ConditionValue.ConditionType.weatherSnow:
+                    case ConditionValue.WeatherType.weatherSnow:
                         {
                             weatherString = "snow";
                             break;
                         }
-                    case ConditionValue.ConditionType.weatherRain:
+                    case ConditionValue.WeatherType.weatherRain:
                         {
                             weatherString = "rain";
                             break;
                         }
-                    case ConditionValue.ConditionType.weatherClear:
+                    case ConditionValue.WeatherType.weatherClear:
                         {
                             weatherString = "clear";
                             break;
@@ -61,26 +61,26 @@ namespace JunctionXUber2.Handlers
 
         public Recommendation GetCityRecommendations(DataWorksheet rides_trips)
         {
-            List<RowData> city1Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city1);
-            List<RowData> city2Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city2);
-            List<RowData> city3Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city3);
-            List<RowData> city4Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city4);
-            List<RowData> city5Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city5);
+            List<RowData> city1Trips = GetAllRidesWithCity(rides_trips, ConditionValue.CityType.city1);
+            List<RowData> city2Trips = GetAllRidesWithCity(rides_trips, ConditionValue.CityType.city2);
+            List<RowData> city3Trips = GetAllRidesWithCity(rides_trips, ConditionValue.CityType.city3);
+            List<RowData> city4Trips = GetAllRidesWithCity(rides_trips, ConditionValue.CityType.city4);
+            List<RowData> city5Trips = GetAllRidesWithCity(rides_trips, ConditionValue.CityType.city5);
 
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(CalculateAverageTips(city1Trips), CalculateEarningsPerHour(city1Trips), CalculateTripsPerDay(city1Trips), ConditionValue.ConditionType.city1),
-                new ConditionValue(CalculateAverageTips(city2Trips), CalculateEarningsPerHour(city2Trips), CalculateTripsPerDay(city2Trips), ConditionValue.ConditionType.city2),
-                new ConditionValue(CalculateAverageTips(city3Trips), CalculateEarningsPerHour(city3Trips), CalculateTripsPerDay(city3Trips), ConditionValue.ConditionType.city3),
-                new ConditionValue(CalculateAverageTips(city4Trips), CalculateEarningsPerHour(city4Trips), CalculateTripsPerDay(city4Trips), ConditionValue.ConditionType.city4),
-                new ConditionValue(CalculateAverageTips(city5Trips), CalculateEarningsPerHour(city5Trips), CalculateTripsPerDay(city5Trips), ConditionValue.ConditionType.city5)
+                new ConditionValue(CalculateAverageTips(city1Trips), CalculateEarningsPerHour(city1Trips), CalculateTripsPerDay(city1Trips), ConditionValue.CityType.city1),
+                new ConditionValue(CalculateAverageTips(city2Trips), CalculateEarningsPerHour(city2Trips), CalculateTripsPerDay(city2Trips), ConditionValue.CityType.city2),
+                new ConditionValue(CalculateAverageTips(city3Trips), CalculateEarningsPerHour(city3Trips), CalculateTripsPerDay(city3Trips), ConditionValue.CityType.city3),
+                new ConditionValue(CalculateAverageTips(city4Trips), CalculateEarningsPerHour(city4Trips), CalculateTripsPerDay(city4Trips), ConditionValue.CityType.city4),
+                new ConditionValue(CalculateAverageTips(city5Trips), CalculateEarningsPerHour(city5Trips), CalculateTripsPerDay(city5Trips), ConditionValue.CityType.city5)
             };
 
             return new Recommendation(results);
         }
 
-        private List<RowData> GetAllRidesWithCity(DataWorksheet rides_trips, ConditionValue.ConditionType cityType)
+        private List<RowData> GetAllRidesWithCity(DataWorksheet rides_trips, ConditionValue.CityType cityType)
         {
             return rides_trips.rowDatas.FindAll(trip =>
             {
@@ -90,23 +90,23 @@ namespace JunctionXUber2.Handlers
 
         public Recommendation GetDistanceRecommendations(DataWorksheet rides_trips)
         {
-            List<RowData> distance3Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance3);
-            List<RowData> distance37Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance37);
-            List<RowData> distance710Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance710);
-            List<RowData> distance10Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance10);
+            List<RowData> distance3Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.DistanceType.distance3);
+            List<RowData> distance37Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.DistanceType.distance37);
+            List<RowData> distance710Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.DistanceType.distance710);
+            List<RowData> distance10Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.DistanceType.distance10);
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(CalculateAverageTips(distance3Trips), CalculateEarningsPerHour(distance3Trips), CalculateAverageTips(distance3Trips), ConditionValue.ConditionType.distance3),
-                new ConditionValue(CalculateAverageTips(distance37Trips), CalculateEarningsPerHour(distance37Trips), CalculateAverageTips(distance37Trips), ConditionValue.ConditionType.distance37),
-                new ConditionValue(CalculateAverageTips(distance710Trips), CalculateEarningsPerHour(distance710Trips), CalculateAverageTips(distance710Trips), ConditionValue.ConditionType.distance710),
-                new ConditionValue(CalculateAverageTips(distance10Trips), CalculateEarningsPerHour(distance10Trips), CalculateAverageTips(distance10Trips), ConditionValue.ConditionType.distance10)
+                new ConditionValue(CalculateAverageTips(distance3Trips), CalculateEarningsPerHour(distance3Trips), CalculateAverageTips(distance3Trips), ConditionValue.DistanceType.distance3),
+                new ConditionValue(CalculateAverageTips(distance37Trips), CalculateEarningsPerHour(distance37Trips), CalculateAverageTips(distance37Trips), ConditionValue.DistanceType.distance37),
+                new ConditionValue(CalculateAverageTips(distance710Trips), CalculateEarningsPerHour(distance710Trips), CalculateAverageTips(distance710Trips), ConditionValue.DistanceType.distance710),
+                new ConditionValue(CalculateAverageTips(distance10Trips), CalculateEarningsPerHour(distance10Trips), CalculateAverageTips(distance10Trips), ConditionValue.DistanceType.distance10)
             };
 
             return new Recommendation(results);
         }
 
-        private List<RowData> GetAllRidesWithDistance(DataWorksheet rides_trips, ConditionValue.ConditionType distanceType)
+        private List<RowData> GetAllRidesWithDistance(DataWorksheet rides_trips, ConditionValue.DistanceType distanceType)
         {
             return rides_trips.rowDatas.FindAll(trip =>
             {
@@ -115,16 +115,16 @@ namespace JunctionXUber2.Handlers
 
                 switch (distanceType)
                 {
-                    case ConditionValue.ConditionType.distance3:
+                    case ConditionValue.DistanceType.distance3:
                         return distance < 3;
 
-                    case ConditionValue.ConditionType.distance37:
+                    case ConditionValue.DistanceType.distance37:
                         return distance >= 3 && distance <= 7;
 
-                    case ConditionValue.ConditionType.distance710:
+                    case ConditionValue.DistanceType.distance710:
                         return distance > 7 && distance <= 10;
 
-                    case ConditionValue.ConditionType.distance10:
+                    case ConditionValue.DistanceType.distance10:
                         return distance > 10;
 
                     default:
@@ -181,19 +181,19 @@ namespace JunctionXUber2.Handlers
             return uniqueDays == 0 ? 0 : (double)values.Count / uniqueDays;
         }
 
-        public int CityNumber(ConditionValue.ConditionType type)
+        public int CityNumber(ConditionValue.CityType type)
         {
             switch (type)
             {
-                case ConditionValue.ConditionType.city1:
+                case ConditionValue.CityType.city1:
                     return 1;
-                case ConditionValue.ConditionType.city2:
+                case ConditionValue.CityType.city2:
                     return 2;
-                case ConditionValue.ConditionType.city3:
+                case ConditionValue.CityType.city3:
                     return 3;
-                case ConditionValue.ConditionType.city4:
+                case ConditionValue.CityType.city4:
                     return 4;
-                case ConditionValue.ConditionType.city5:
+                case ConditionValue.CityType.city5:
                     return 5;
                 default:
                     return -1;
