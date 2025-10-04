@@ -35,13 +35,12 @@ namespace JunctionXUber2.Views
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
 
-            // Choose theme: LIGHT or DARK
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             // Choose a color scheme (primary, dark primary, light primary, accent, text)
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue600, Primary.Blue700,
-                Primary.Blue200, Accent.LightBlue200,
+                Primary.Grey900, Primary.Grey900,
+                Primary.Cyan300, Accent.LightBlue200,
                 TextShade.WHITE
             );
 
