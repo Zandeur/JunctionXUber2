@@ -25,6 +25,9 @@ namespace JunctionXUber2
         {
             ExcelReader excelReader = new ExcelReader();
             dataworksheets = excelReader.GetWorksheets();
+
+            RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
+            recommendationGenerator.GetWeatherRecommendation(dataworksheets.rides_trips, dataworksheets.weather_daily);
         }
     }
 }

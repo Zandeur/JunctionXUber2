@@ -9,12 +9,12 @@ namespace JunctionXUber2.DataObjects
     internal class DataWorksheet
     {
         public string name;
-        public List<Dictionary<string, string>> data;
+        public List<RowData> rowDatas;
 
-        public DataWorksheet(string name, List<Dictionary<string, string>> data)
+        public DataWorksheet(string name, List<RowData> rowDatas)
         {
             this.name = name;
-            this.data = data;
+            this.rowDatas = rowDatas;
         }
     }
 }

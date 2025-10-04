@@ -78,10 +78,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataObjects\Conditions\ConditionValue.cs" />
+    <Compile Include="DataObjects\Conditions\WeatherTypes.cs" />
     <Compile Include="DataObjects\DataWorksheet.cs" />
     <Compile Include="DataObjects\Dataworksheets.cs" />
+    <Compile Include="DataObjects\Recommendation.cs" />
+    <Compile Include="DataObjects\RowData.cs" />
     <Compile Include="Handlers\DataTableHandler.cs" />
     <Compile Include="Handlers\ExcelReader.cs" />
+    <Compile Include="Handlers\RecommendationGenerator.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
