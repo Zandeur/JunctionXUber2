@@ -40,7 +40,7 @@
             this.labelOptimalSuggestion = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartWeather = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelWeatherSuggestion = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -55,6 +55,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWeather)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -134,7 +135,7 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.chart1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.chartWeather, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.labelWeatherSuggestion, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 2);
@@ -146,8 +147,22 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1223, 603);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // chart1
+            // chartWeather
             // 
+            chartArea1.Name = "ChartArea1";
+            this.chartWeather.ChartAreas.Add(chartArea1);
+            this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chartWeather.Legends.Add(legend1);
+            this.chartWeather.Location = new System.Drawing.Point(3, 85);
+            this.chartWeather.Name = "chartWeather";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartWeather.Series.Add(series1);
+            this.chartWeather.Size = new System.Drawing.Size(904, 331);
+            this.chartWeather.TabIndex = 4;
+            this.chartWeather.Text = "chart1";
             chartArea2.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -183,6 +198,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 39);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(914, 423);
             this.tabPage3.Size = new System.Drawing.Size(1229, 607);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "City";
@@ -295,6 +311,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWeather)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -317,7 +334,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label labelOptimalSuggestion;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartWeather;
         private System.Windows.Forms.Label labelWeatherSuggestion;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
