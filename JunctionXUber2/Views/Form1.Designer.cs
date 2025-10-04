@@ -99,7 +99,7 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1223, 603);
             this.tableLayoutPanel2.TabIndex = 1;
@@ -107,6 +107,7 @@
             // labelOptimalSuggestion
             // 
             this.labelOptimalSuggestion.AutoSize = true;
+            this.labelOptimalSuggestion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelOptimalSuggestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOptimalSuggestion.Location = new System.Drawing.Point(4, 0);
             this.labelOptimalSuggestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -147,8 +148,8 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
@@ -171,7 +172,7 @@
             this.labelWeatherSuggestion.Location = new System.Drawing.Point(4, 12);
             this.labelWeatherSuggestion.Margin = new System.Windows.Forms.Padding(4, 12, 4, 12);
             this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
-            this.labelWeatherSuggestion.Size = new System.Drawing.Size(1215, 78);
+            this.labelWeatherSuggestion.Size = new System.Drawing.Size(910, 62);
             this.labelWeatherSuggestion.TabIndex = 3;
             this.labelWeatherSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather]";
             this.labelWeatherSuggestion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
