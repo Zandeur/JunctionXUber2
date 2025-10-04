@@ -150,7 +150,7 @@ namespace JunctionXUber2.Handlers
                 return earningsPerHour;
             }).ToList();
 
-            return values.Count() > 0 ? values.Average() : -1;
+            return values.Count() > 0 ? values.Average() : 0;
         }
 
         private double CalculateAverageTips(List<RowData> trips)
@@ -160,26 +160,18 @@ namespace JunctionXUber2.Handlers
                 double tip = double.Parse(trip.data["tips"]);
                 return tip;
             }).ToList();
-            return values.Count() > 0 ? values.Average() : -1;
+            return values.Count() > 0 ? values.Average() : 0;
         }
 
-        private int CalculateTripsPerDay(List<RowData> trips)
+        private double CalculateTripsPerDay(List<RowData> trips)
         {
-            List<DateTime> values = trips.Select(trip =>
+            List<double> values = trips.Select(trip =>
             {
 
-                string startString = trip.data["start_time"];
-                DateTime startTime = DateTime.ParseExact(startString, "yyyy-MM-dd HH:mm:ss", null);
-                return startTime;
+                string amount = trip.data["trips_count"];
+                return double.Parse(amount);
             }).ToList();
-
-            int uniqueDays = values
-                                .Select(t => t.Date) 
-                                .Distinct()                          
-                                .Count();
-
-            if (uniqueDays == 0) return 0;
-            return values.Count() / uniqueDays;
+            return values.Count() > 0 ? values.Average() : 0;
         }
     }
 }
