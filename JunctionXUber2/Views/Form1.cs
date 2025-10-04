@@ -15,16 +15,19 @@ namespace JunctionXUber2
 {
     public partial class Form1 : Form
     {
+        private readonly CustomerEnumConverter enumConverter = new CustomerEnumConverter();
         private readonly DataWorksheetHandler dataWorksheetHandler = new DataWorksheetHandler();
         private Dataworksheets dataworksheets;
 
-        private readonly string weatherLabelString;
+        private readonly string defaultOptimalString;
+        private readonly string defaultWeatherLabelString;
 
         public Form1()
         {
             InitializeComponent();
 
-            weatherLabelString = labelWeatherSuggestion.Text;
+            defaultOptimalString = labelOptimalSuggestion.Text;
+            defaultWeatherLabelString = labelWeatherSuggestion.Text;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,13 +39,19 @@ namespace JunctionXUber2
         {
             dataworksheets = dataWorksheetHandler.GetDataWorksheets(textBoxUserId.Text);
 
+            UpdateWomboCombo();
             UpdateWeatherRecommendation();
+        }
 
+        private void UpdateWomboCombo()
+        {
             WomboComboGenerator womboComboGenerator = new WomboComboGenerator();
             DataWorksheet rides_trips = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips);
             DataWorksheet weather = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily);
             WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas, weather);
-            Console.Write("");
+            if (womboCombo == null) return;
+
+            labelOptimalSuggestion.Text = enumConverter.GetOptimalSuggestion(defaultOptimalString, womboCombo);
         }
 
         private void UpdateWeatherRecommendation()
@@ -50,12 +59,13 @@ namespace JunctionXUber2
             RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
             Recommendation weatherRecommendation = recommendationGenerator.GetWeatherRecommendations(dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips), dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily));
 
-            ConditionValue optimalCondition = weatherRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
-            
-            string newLabelText = weatherLabelString.Replace("[money]", optimalCondition.euroPerHour.ToString("F2"));
-            newLabelText = newLabelText.Replace("[weather]", optimalCondition.type.ToString());
+            ConditionValue optimalWeatherCondition = weatherRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
+            labelWeatherSuggestion.Text = enumConverter.GetOptimalWeather(defaultWeatherLabelString, optimalWeatherCondition);
+        }
 
-            labelWeatherSuggestion.Text = newLabelText;
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            labelOptimalSuggestion.MaximumSize = new Size(this.Width - 100, 0);
         }
     }
 }
