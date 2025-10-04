@@ -1,6 +1,8 @@
 ﻿using JunctionXUber2.DataObjects;
 using JunctionXUber2.DataObjects.Conditions;
 using JunctionXUber2.Handlers;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +15,7 @@ using System.Windows.Forms;
 
 namespace JunctionXUber2
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
         private readonly CustomerEnumConverter enumConverter = new CustomerEnumConverter();
         private readonly DataWorksheetHandler dataWorksheetHandler = new DataWorksheetHandler();
@@ -25,6 +27,19 @@ namespace JunctionXUber2
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+
+            // Choose theme: LIGHT or DARK
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Choose a color scheme (primary, dark primary, light primary, accent, text)
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue600, Primary.Blue700,
+                Primary.Blue200, Accent.LightBlue200,
+                TextShade.WHITE
+            );
 
             defaultOptimalString = labelOptimalSuggestion.Text;
             defaultWeatherLabelString = labelWeatherSuggestion.Text;
