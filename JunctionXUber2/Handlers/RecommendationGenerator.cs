@@ -14,9 +14,9 @@ namespace JunctionXUber2.Handlers
         {
             Recommendation recommendation = new Recommendation();
 
-            List<RowData> clearDays = GetAllRidesWithWeather(rides_trips, weather_daily, WeatherTypes.Type.clear);
-            List<RowData> rainDays = GetAllRidesWithWeather(rides_trips, weather_daily, WeatherTypes.Type.rain);
-            List<RowData> snowDays = GetAllRidesWithWeather(rides_trips, weather_daily, WeatherTypes.Type.snow);
+            List<RowData> clearTrips = GetAllRidesWithWeather(rides_trips, weather_daily, WeatherTypes.Type.clear);
+            List<RowData> rainTrips = GetAllRidesWithWeather(rides_trips, weather_daily, WeatherTypes.Type.rain);
+            List<RowData> snowTrips = GetAllRidesWithWeather(rides_trips, weather_daily, WeatherTypes.Type.snow);
 
             return recommendation;
         }
