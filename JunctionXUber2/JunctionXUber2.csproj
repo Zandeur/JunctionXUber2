@@ -94,6 +94,7 @@
     <Compile Include="Handlers\DataWorksheetHandler.cs" />
     <Compile Include="Handlers\CustomerEnumConverter.cs" />
     <Compile Include="Handlers\ExcelReader.cs" />
+    <Compile Include="Handlers\GraphConverter.cs" />
     <Compile Include="Handlers\RecommendationGenerator.cs" />
     <Compile Include="Handlers\WomboComboGenerator.cs" />
     <Compile Include="Views\Form1.cs">

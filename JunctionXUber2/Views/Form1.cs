@@ -18,7 +18,10 @@ namespace JunctionXUber2
     public partial class Form1 : MaterialForm
     {
         private readonly CustomerEnumConverter enumConverter = new CustomerEnumConverter();
+        private readonly GraphConverter graphConverter = new GraphConverter();
+
         private readonly DataWorksheetHandler dataWorksheetHandler = new DataWorksheetHandler();
+
         private Dataworksheets dataworksheets;
 
         private readonly string defaultOptimalString;
@@ -76,6 +79,8 @@ namespace JunctionXUber2
 
             ConditionValue optimalWeatherCondition = weatherRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
             labelWeatherSuggestion.Text = enumConverter.GetOptimalWeather(defaultWeatherLabelString, optimalWeatherCondition);
+
+            graphConverter.SetWeatherDataPoints(chartWeather.Series.First(), weatherRecommendation.sortedConditionValues);
         }
     }
 }
