@@ -84,6 +84,8 @@ namespace JunctionXUber2.Views
             WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas, weather);
             if (womboCombo == null) return;
 
+            graphConverter.SetOptimalDataPoints(optimalchart.Series.First(), rides_trips, weather, womboCombo);
+
             labelOptimalSuggestion.Text = enumConverter.GetOptimalSuggestion(defaultOptimalString, womboCombo);
         }
 

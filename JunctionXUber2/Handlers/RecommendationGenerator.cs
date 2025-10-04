@@ -26,7 +26,7 @@ namespace JunctionXUber2.Handlers
             return new Recommendation(results);
         }
 
-        private List<RowData> GetAllRidesWithWeather(DataWorksheet rides_trips, DataWorksheet weather_daily, ConditionValue.WeatherType weatherType)
+        public List<RowData> GetAllRidesWithWeather(DataWorksheet rides_trips, DataWorksheet weather_daily, ConditionValue.WeatherType weatherType)
         {
             return rides_trips.rowDatas.FindAll(trip =>
             {
@@ -80,7 +80,7 @@ namespace JunctionXUber2.Handlers
             return new Recommendation(results);
         }
 
-        private List<RowData> GetAllRidesWithCity(DataWorksheet rides_trips, ConditionValue.CityType cityType)
+        public List<RowData> GetAllRidesWithCity(DataWorksheet rides_trips, ConditionValue.CityType cityType)
         {
             return rides_trips.rowDatas.FindAll(trip =>
             {
@@ -106,7 +106,7 @@ namespace JunctionXUber2.Handlers
             return new Recommendation(results);
         }
 
-        private List<RowData> GetAllRidesWithDistance(DataWorksheet rides_trips, ConditionValue.DistanceType distanceType)
+        public List<RowData> GetAllRidesWithDistance(DataWorksheet rides_trips, ConditionValue.DistanceType distanceType)
         {
             return rides_trips.rowDatas.FindAll(trip =>
             {
