@@ -105,15 +105,15 @@ namespace JunctionXUber2.Handlers
 
             switch (city)
             {
-                case "1":
+                case "city1":
                     return ConditionValue.ConditionType.city1;
-                case "2":
+                case "city2":
                     return ConditionValue.ConditionType.city2;
-                case "3":
+                case "city3":
                     return ConditionValue.ConditionType.city3;
-                case "4":
+                case "city4":
                     return ConditionValue.ConditionType.city4;
-                case "5":
+                case "city5":
                     return ConditionValue.ConditionType.city5;
                 default:
                     return ConditionValue.ConditionType.city1;
@@ -121,7 +121,7 @@ namespace JunctionXUber2.Handlers
         }
 
         private ConditionValue.ConditionType MapToDistance(RowData trip)
-        { 
+        {
             double dist = double.Parse(trip.data["distance_km"]);
             if (dist < 3) return ConditionValue.ConditionType.distance3;
             else if (dist < 7) return ConditionValue.ConditionType.distance37;
