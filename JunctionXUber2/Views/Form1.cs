@@ -32,7 +32,8 @@ namespace JunctionXUber2
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ExcelReader excelReader = new ExcelReader();
+            dataworksheets = excelReader.GetWorksheets(textBoxUserId.Text);
         }
     }
 }
