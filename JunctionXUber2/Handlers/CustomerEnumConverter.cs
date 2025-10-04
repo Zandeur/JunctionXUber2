@@ -10,45 +10,45 @@ namespace JunctionXUber2.Handlers
 {
     internal class CustomerEnumConverter
     {
-        public string ConvertDistance(ConditionValue.DistanceType distance)
+        public string ConvertDistance(ConditionValue.ConditionType distance)
         {
             switch(distance)
             {
-                case ConditionValue.DistanceType.distance3: return "<3";
-                case ConditionValue.DistanceType.distance37: return "3-7";
-                case ConditionValue.DistanceType.distance710: return "7-10";
-                case ConditionValue.DistanceType.distance10: return ">10";
+                case ConditionValue.ConditionType.distance3: return "<3";
+                case ConditionValue.ConditionType.distance37: return "3-7";
+                case ConditionValue.ConditionType.distance710: return "7-10";
+                case ConditionValue.ConditionType.distance10: return ">10";
                 default: return "-";
             }
         }
 
-        public string ConvertWeather(ConditionValue.WeatherType weather)
+        public string ConvertWeahter(ConditionValue.ConditionType weather)
         {
             switch(weather)
             {
-                case ConditionValue.WeatherType.weatherClear: return "clear";
-                case ConditionValue.WeatherType.weatherSnow: return "snowing";
-                case ConditionValue.WeatherType.weatherRain: return "raining";
+                case ConditionValue.ConditionType.weatherClear: return "clear";
+                case ConditionValue.ConditionType.weatherSnow: return "snowing";
+                case ConditionValue.ConditionType.weatherRain: return "raining";
                 default: return "-";
             }
         }
 
-        public string ConvertCity(ConditionValue.CityType city)
+        public string ConvertCity(ConditionValue.ConditionType city)
         {
             switch (city)
             {
-                case ConditionValue.CityType.city1: return "city 1";
-                case ConditionValue.CityType.city2: return "city 2";
-                case ConditionValue.CityType.city3: return "city 3";
-                case ConditionValue.CityType.city4: return "city 4";
-                case ConditionValue.CityType.city5: return "city 5";
+                case ConditionValue.ConditionType.city1: return "city 1";
+                case ConditionValue.ConditionType.city2: return "city 2";
+                case ConditionValue.ConditionType.city3: return "city 3";
+                case ConditionValue.ConditionType.city4: return "city 4";
+                case ConditionValue.ConditionType.city5: return "city 5";
                 default: return "-";
             }
         }
 
         public string GetOptimalSuggestion(string defaultText, WomboCombo womboCombo)
         {
-            string newLabelText = defaultText.Replace("[weather]", ConvertWeather(womboCombo.Weather));
+            string newLabelText = defaultText.Replace("[weather]", ConvertWeahter(womboCombo.Weather));
             newLabelText = newLabelText.Replace("[money]", womboCombo.AvgEarningsPerHour.ToString("F2"));
             newLabelText = newLabelText.Replace("[city]", womboCombo.City.ToString());
             return newLabelText.Replace("[distance]", ConvertDistance(womboCombo.Distance));
@@ -57,12 +57,12 @@ namespace JunctionXUber2.Handlers
         public string GetOptimalWeather(string defaultText, ConditionValue weatherCondition)
         {
             string newLabelText = defaultText.Replace("[money]", weatherCondition.euroPerHour.ToString("F2"));
-            return newLabelText.Replace("[weather]", ConvertWeather(weatherCondition.weatherType));
+            return newLabelText.Replace("[weather]", ConvertWeahter(weatherCondition.type));
         }
         public string GetOptimalCity(string defaultText, ConditionValue cityCondition)
         {
             string newLabelText = defaultText.Replace("[money]", cityCondition.euroPerHour.ToString("F2"));
-            return newLabelText.Replace("[city]", ConvertCity(cityCondition.cityType));
+            return newLabelText.Replace("[city]", ConvertCity(cityCondition.type));
         }
         public string GetOptimalDistance(string defaultText, ConditionValue distanceCondition)
         {

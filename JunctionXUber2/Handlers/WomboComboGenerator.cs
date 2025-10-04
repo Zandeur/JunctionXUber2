@@ -13,15 +13,15 @@ namespace JunctionXUber2.Handlers
         public WomboCombo GetOptimalCombination(
             List<RowData> trips,
             DataWorksheet weather_daily,
-            ConditionValue.WeatherType? filterWeather = null,
-            ConditionValue.CityType? filterCity = null,
-            ConditionValue.DistanceType? filterDistance = null)
+            ConditionValue.ConditionType? filterWeather = null,
+            ConditionValue.ConditionType? filterCity = null,
+            ConditionValue.ConditionType? filterDistance = null)
         {
             var filteredTrips = trips.Where(trip =>
             {
-                ConditionValue.WeatherType weather = MapToWeather(trip, weather_daily);
-                ConditionValue.CityType city = MapToCity(trip);
-                ConditionValue.DistanceType distance = MapToDistance(trip);
+                var weather = MapToWeather(trip, weather_daily);
+                var city = MapToCity(trip);
+                var distance = MapToDistance(trip);
 
                 bool matchWeather = !filterWeather.HasValue || weather == filterWeather.Value;
                 bool matchCity = !filterCity.HasValue || city == filterCity.Value;
@@ -69,7 +69,7 @@ namespace JunctionXUber2.Handlers
             return optimalCombo;
         }
 
-        private static ConditionValue.WeatherType MapToWeather(RowData trip, DataWorksheet weather_daily)
+        private static ConditionValue.ConditionType MapToWeather(RowData trip, DataWorksheet weather_daily)
         {
             string date = trip.data["date"];
             string city_id = trip.data["city_id"];
@@ -78,55 +78,55 @@ namespace JunctionXUber2.Handlers
                 .FirstOrDefault(row => row.data["date"].Equals(date) && row.data["city_id"].Equals(city_id));
 
             if (correspondingDay == null)
-                return ConditionValue.WeatherType.weatherClear;
+                return ConditionValue.ConditionType.weatherClear;
 
             string weatherString = correspondingDay.data["weather"].ToString().ToLower().Trim();
 
             switch (weatherString)
             {
                 case "snow":
-                    return ConditionValue.WeatherType.weatherSnow;
+                    return ConditionValue.ConditionType.weatherSnow;
 
                 case "rain":
-                    return ConditionValue.WeatherType.weatherRain;
+                    return ConditionValue.ConditionType.weatherRain;
 
                 case "clear":
-                    return ConditionValue.WeatherType.weatherClear;
+                    return ConditionValue.ConditionType.weatherClear;
 
                 default:
                     Console.WriteLine($"[Warning] Unknown weather string: {weatherString}");
-                    return ConditionValue.WeatherType.weatherClear;
+                    return ConditionValue.ConditionType.weatherClear;
             }
         }
 
-        private ConditionValue.CityType MapToCity(RowData trip)
+        private ConditionValue.ConditionType MapToCity(RowData trip)
         {
             string city = trip.data["city_id"].ToString().ToLower();
 
             switch (city)
             {
                 case "1":
-                    return ConditionValue.CityType.city1;
+                    return ConditionValue.ConditionType.city1;
                 case "2":
-                    return ConditionValue.CityType.city2;
+                    return ConditionValue.ConditionType.city2;
                 case "3":
-                    return ConditionValue.CityType.city3;
+                    return ConditionValue.ConditionType.city3;
                 case "4":
-                    return ConditionValue.CityType.city4;
+                    return ConditionValue.ConditionType.city4;
                 case "5":
-                    return ConditionValue.CityType.city5;
+                    return ConditionValue.ConditionType.city5;
                 default:
-                    return ConditionValue.CityType.city1;
+                    return ConditionValue.ConditionType.city1;
             }
         }
 
-        private ConditionValue.DistanceType MapToDistance(RowData trip)
+        private ConditionValue.ConditionType MapToDistance(RowData trip)
         {
             double dist = double.Parse(trip.data["distance_km"]);
-            if (dist < 3) return ConditionValue.DistanceType.distance3;
-            else if (dist < 7) return ConditionValue.DistanceType.distance37;
-            else if (dist < 10) return ConditionValue.DistanceType.distance710;
-            else return ConditionValue.DistanceType.distance10;
+            if (dist < 3) return ConditionValue.ConditionType.distance3;
+            else if (dist < 7) return ConditionValue.ConditionType.distance37;
+            else if (dist < 10) return ConditionValue.ConditionType.distance710;
+            else return ConditionValue.ConditionType.distance10;
         }
     }
 }

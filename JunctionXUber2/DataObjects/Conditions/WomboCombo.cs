@@ -8,9 +8,9 @@ namespace JunctionXUber2.DataObjects.Conditions
 {
     internal class WomboCombo
     {
-        public ConditionValue.WeatherType Weather;
-        public ConditionValue.CityType City;
-        public ConditionValue.DistanceType Distance;
+        public ConditionValue.ConditionType Weather;
+        public ConditionValue.ConditionType City;
+        public ConditionValue.ConditionType Distance;
         public double AvgEarningsPerHour;
     }
 }
