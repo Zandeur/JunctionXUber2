@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JunctionXUber2.Handlers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace JunctionXUber2
         public Form1()
         {
             InitializeComponent();
+
+            ExcelReader excelReader = new ExcelReader();
         }
     }
 }
