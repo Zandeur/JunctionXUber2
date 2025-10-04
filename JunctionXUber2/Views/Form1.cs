@@ -26,6 +26,7 @@ namespace JunctionXUber2
 
         private readonly string defaultOptimalString;
         private readonly string defaultWeatherLabelString;
+        private readonly string defaultCityLabelString;
 
         public Form1()
         {
@@ -46,6 +47,7 @@ namespace JunctionXUber2
 
             defaultOptimalString = labelOptimalSuggestion.Text;
             defaultWeatherLabelString = labelWeatherSuggestion.Text;
+            defaultCityLabelString = labelCitySuggestion.Text;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,6 +61,7 @@ namespace JunctionXUber2
 
             UpdateWomboCombo();
             UpdateWeatherRecommendation();
+            UpdateCityRecommendation();
         }
 
         private void UpdateWomboCombo()
@@ -81,6 +84,15 @@ namespace JunctionXUber2
             labelWeatherSuggestion.Text = enumConverter.GetOptimalWeather(defaultWeatherLabelString, optimalWeatherCondition);
 
             graphConverter.SetWeatherDataPoints(chartWeather.Series.First(), weatherRecommendation.sortedConditionValues);
+        }
+
+        private void UpdateCityRecommendation()
+        {
+            RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
+            Recommendation cityRecommendation = recommendationGenerator.GetCityRecommendations(dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips));
+
+            ConditionValue optimalCityCondition = cityRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
+            labelCitySuggestion.Text = enumConverter.GetOptimalCity(defaultCityLabelString, optimalCityCondition);
         }
     }
 }
