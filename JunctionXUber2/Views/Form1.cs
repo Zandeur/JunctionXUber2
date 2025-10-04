@@ -32,10 +32,9 @@ namespace JunctionXUber2
             dataworksheets = dataWorksheetHandler.GetDataWorksheets(textBoxUserId.Text);
 
             RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
-            Recommendation recommendation = recommendationGenerator.GetWeatherRecommendations(dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips), dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily));
+            Recommendation weatherRecommendation = recommendationGenerator.GetWeatherRecommendations(dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips), dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily));
 
-            DataTable dt = DataTableHandler.ConvertEnumerable(recommendation.sortedConditionValues);
-            dataGridViewWeather.DataSource = dt;
+
         }
     }
 }

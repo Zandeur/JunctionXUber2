@@ -29,61 +29,75 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Weather = new System.Windows.Forms.TabPage();
-            this.dataGridViewWeather = new System.Windows.Forms.DataGridView();
-            this.Distance = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelOptimalSuggestion = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBoxUserId = new System.Windows.Forms.TextBox();
             this.buttonSelectUserId = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
-            this.Weather.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeather)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.tabControl1, 2);
-            this.tabControl1.Controls.Add(this.Weather);
-            this.tabControl1.Controls.Add(this.Distance);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(27, 77);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(12, 6);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(928, 505);
             this.tabControl1.TabIndex = 0;
             // 
-            // Weather
+            // tabPage1
             // 
-            this.Weather.Controls.Add(this.dataGridViewWeather);
-            this.Weather.Location = new System.Drawing.Point(4, 22);
-            this.Weather.Margin = new System.Windows.Forms.Padding(2);
-            this.Weather.Name = "Weather";
-            this.Weather.Padding = new System.Windows.Forms.Padding(2);
-            this.Weather.Size = new System.Drawing.Size(920, 479);
-            this.Weather.TabIndex = 0;
-            this.Weather.Text = "Weather";
-            this.Weather.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.labelOptimalSuggestion);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(920, 468);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Optimal suggestion";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewWeather
+            // labelOptimalSuggestion
             // 
-            this.dataGridViewWeather.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewWeather.Location = new System.Drawing.Point(5, 5);
-            this.dataGridViewWeather.Name = "dataGridViewWeather";
-            this.dataGridViewWeather.Size = new System.Drawing.Size(910, 469);
-            this.dataGridViewWeather.TabIndex = 0;
+            this.labelOptimalSuggestion.AutoSize = true;
+            this.labelOptimalSuggestion.Location = new System.Drawing.Point(18, 18);
+            this.labelOptimalSuggestion.Name = "labelOptimalSuggestion";
+            this.labelOptimalSuggestion.Size = new System.Drawing.Size(599, 18);
+            this.labelOptimalSuggestion.TabIndex = 0;
+            this.labelOptimalSuggestion.Text = "You have earned the most money when it was [weather] in [city], making [distance]" +
+    "km trips";
             // 
-            // Distance
+            // tabPage2
             // 
-            this.Distance.Location = new System.Drawing.Point(4, 22);
-            this.Distance.Margin = new System.Windows.Forms.Padding(2);
-            this.Distance.Name = "Distance";
-            this.Distance.Padding = new System.Windows.Forms.Padding(2);
-            this.Distance.Size = new System.Drawing.Size(920, 479);
-            this.Distance.TabIndex = 1;
-            this.Distance.Text = "Distance";
-            this.Distance.UseVisualStyleBackColor = true;
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(920, 468);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Weather";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(920, 468);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "City";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // textBoxUserId
             // 
@@ -137,8 +151,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
-            this.Weather.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeather)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -148,12 +162,13 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage Weather;
-        private System.Windows.Forms.TabPage Distance;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox textBoxUserId;
         private System.Windows.Forms.Button buttonSelectUserId;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridViewWeather;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label labelOptimalSuggestion;
     }
 }
 
