@@ -15,10 +15,12 @@ namespace JunctionXUber2.Handlers
             List<RowData> rainTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.ConditionType.weatherRain);
             List<RowData> snowTrips = GetAllRidesWithWeather(rides_trips, weather_daily, ConditionValue.ConditionType.weatherSnow);
 
-            List<ConditionValue> results = new List<ConditionValue>();
-            results.Add(new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherClear));
-            results.Add(new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherRain));
-            results.Add(new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherSnow));
+            List<ConditionValue> results = new List<ConditionValue>
+            {
+                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherClear),
+                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherRain),
+                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherSnow)
+            };
 
             return new Recommendation(results);
         }
@@ -53,13 +55,7 @@ namespace JunctionXUber2.Handlers
                 return earningsPerHour;
             }).ToList();
 
-            if (values.Count() > 0)
-            {
-                return values.Average();
-            } else
-            {
-                return -1;
-            }
+            return values.Count() > 0 ? values.Average() : -1;
         }
     }
 }
