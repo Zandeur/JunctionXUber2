@@ -18,7 +18,10 @@ namespace JunctionXUber2.DataObjects
             city3,
             city4,
             city5,
-            distance,
+            distance3,
+            distance37,
+            distance710,
+            distance10,
             timeOfDay,
         }
 

@@ -63,6 +63,51 @@ namespace JunctionXUber2.Handlers
             });
         }
 
+        public Recommendation GetDistanceRecommendations(DataWorksheet rides_trips)
+        {
+            List<RowData> distance3Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance3);
+            List<RowData> distance37Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance37);
+            List<RowData> distance710Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance710);
+            List<RowData> distance10Trips = GetAllRidesWithDistance(rides_trips, ConditionValue.ConditionType.distance10);
+
+            List<ConditionValue> results = new List<ConditionValue>
+            {
+                new ConditionValue(0, CalculateEarningsPerHour(distance3Trips), 0, ConditionValue.ConditionType.distance3),
+                new ConditionValue(0, CalculateEarningsPerHour(distance37Trips), 0, ConditionValue.ConditionType.distance37),
+                new ConditionValue(0, CalculateEarningsPerHour(distance710Trips), 0, ConditionValue.ConditionType.distance710),
+                new ConditionValue(0, CalculateEarningsPerHour(distance10Trips), 0, ConditionValue.ConditionType.distance10)
+            };
+
+            return new Recommendation(results);
+        }
+
+        private List<RowData> GetAllRidesWithDistance(DataWorksheet rides_trips, ConditionValue.ConditionType distanceType)
+        {
+            return rides_trips.rowDatas.FindAll(trip =>
+            {
+                if (!double.TryParse(trip.data["distance_km"].ToString(), out double distance))
+                    return false;
+
+                switch (distanceType)
+                {
+                    case ConditionValue.ConditionType.distance3:
+                        return distance < 3;
+
+                    case ConditionValue.ConditionType.distance37:
+                        return distance >= 3 && distance <= 7;
+
+                    case ConditionValue.ConditionType.distance710:
+                        return distance > 7 && distance <= 10;
+
+                    case ConditionValue.ConditionType.distance10:
+                        return distance > 10;
+
+                    default:
+                        return false;
+                }
+            });
+        }
+
         private double CalculateEarningsPerHour(List<RowData> trips)
         {
             List<double> values =  trips.Select(trip =>
