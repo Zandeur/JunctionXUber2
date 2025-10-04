@@ -33,8 +33,10 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelOptimalSuggestion = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelWeatherSuggestion = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -44,7 +46,9 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +71,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.labelOptimalSuggestion);
+            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
@@ -77,22 +81,34 @@
             this.tabPage1.Text = "Optimal suggestion";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.labelOptimalSuggestion, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(916, 486);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
             // labelOptimalSuggestion
             // 
             this.labelOptimalSuggestion.AutoSize = true;
             this.labelOptimalSuggestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOptimalSuggestion.Location = new System.Drawing.Point(18, 19);
-            this.labelOptimalSuggestion.MaximumSize = new System.Drawing.Size(1000, 0);
+            this.labelOptimalSuggestion.Location = new System.Drawing.Point(3, 0);
             this.labelOptimalSuggestion.Name = "labelOptimalSuggestion";
-            this.labelOptimalSuggestion.Size = new System.Drawing.Size(955, 62);
+            this.labelOptimalSuggestion.Size = new System.Drawing.Size(869, 62);
             this.labelOptimalSuggestion.TabIndex = 0;
-            this.labelOptimalSuggestion.Text = "You have earned the most money ($[money]/h) when it was [weather] in [city], maki" +
-    "ng [distance]km long trips";
+            this.labelOptimalSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather] in [" +
+    "city], making [distance]km long trips";
+            this.labelOptimalSuggestion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.chart1);
-            this.tabPage2.Controls.Add(this.labelWeatherSuggestion);
+            this.tabPage2.Controls.Add(this.tableLayoutPanel3);
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
@@ -102,31 +118,50 @@
             this.tabPage2.Text = "Weather";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.chart1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelWeatherSuggestion, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(916, 486);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(24, 68);
+            this.chart1.Location = new System.Drawing.Point(3, 85);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(860, 371);
-            this.chart1.TabIndex = 2;
+            this.chart1.Size = new System.Drawing.Size(910, 398);
+            this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
             // 
             // labelWeatherSuggestion
             // 
             this.labelWeatherSuggestion.AutoSize = true;
+            this.labelWeatherSuggestion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelWeatherSuggestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWeatherSuggestion.Location = new System.Drawing.Point(18, 19);
+            this.labelWeatherSuggestion.Location = new System.Drawing.Point(3, 10);
+            this.labelWeatherSuggestion.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
-            this.labelWeatherSuggestion.Size = new System.Drawing.Size(847, 31);
-            this.labelWeatherSuggestion.TabIndex = 1;
-            this.labelWeatherSuggestion.Text = "You have earned the most money ($[money]/h) when it was [weather]";
+            this.labelWeatherSuggestion.Size = new System.Drawing.Size(910, 62);
+            this.labelWeatherSuggestion.TabIndex = 3;
+            this.labelWeatherSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather]";
+            this.labelWeatherSuggestion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabPage3
             // 
@@ -188,12 +223,13 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -211,9 +247,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label labelOptimalSuggestion;
-        private System.Windows.Forms.Label labelWeatherSuggestion;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label labelWeatherSuggestion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }
 

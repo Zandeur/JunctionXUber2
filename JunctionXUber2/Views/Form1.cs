@@ -62,10 +62,5 @@ namespace JunctionXUber2
             ConditionValue optimalWeatherCondition = weatherRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
             labelWeatherSuggestion.Text = enumConverter.GetOptimalWeather(defaultWeatherLabelString, optimalWeatherCondition);
         }
-
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            labelOptimalSuggestion.MaximumSize = new Size(this.Width - 100, 0);
-        }
     }
 }
