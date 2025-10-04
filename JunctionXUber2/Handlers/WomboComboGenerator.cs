@@ -12,13 +12,14 @@ namespace JunctionXUber2.Handlers
     {
         public WomboCombo GetOptimalCombination(
             List<RowData> trips,
+            DataWorksheet weather_daily,
             ConditionValue.ConditionType? filterWeather = null,
             ConditionValue.ConditionType? filterCity = null,
             ConditionValue.ConditionType? filterDistance = null)
         {
             var filteredTrips = trips.Where(trip =>
             {
-                var weather = MapToWeather(trip);
+                var weather = MapToWeather(trip, weather_daily);
                 var city = MapToCity(trip);
                 var distance = MapToDistance(trip);
 
@@ -42,7 +43,7 @@ namespace JunctionXUber2.Handlers
 
                 return new
                 {
-                    Weather = MapToWeather(trip),
+                    Weather = MapToWeather(trip, weather_daily),
                     City = MapToCity(trip),
                     Distance = MapToDistance(trip),
                     EarningsPerHour = earnings / hours
@@ -68,26 +69,39 @@ namespace JunctionXUber2.Handlers
             return optimalCombo;
         }
 
-        private  ConditionValue.ConditionType MapToWeather(RowData trip)
+        private static ConditionValue.ConditionType MapToWeather(RowData trip, DataWorksheet weather_daily)
         {
-            string weather = trip.data["weather"].ToString().ToLower();
+            string date = trip.data["date"];
+            string city_id = trip.data["city_id"];
 
-            switch (weather)
+            RowData correspondingDay = weather_daily.rowDatas
+                .FirstOrDefault(row => row.data["date"].Equals(date) && row.data["city_id"].Equals(city_id));
+
+            if (correspondingDay == null)
+                return ConditionValue.ConditionType.weatherClear;
+
+            string weatherString = correspondingDay.data["weather"].ToString().ToLower().Trim();
+
+            switch (weatherString)
             {
-                case "clear":
-                    return ConditionValue.ConditionType.weatherClear;
-                case "rain":
-                    return ConditionValue.ConditionType.weatherRain;
                 case "snow":
                     return ConditionValue.ConditionType.weatherSnow;
+
+                case "rain":
+                    return ConditionValue.ConditionType.weatherRain;
+
+                case "clear":
+                    return ConditionValue.ConditionType.weatherClear;
+
                 default:
+                    Console.WriteLine($"[Warning] Unknown weather string: {weatherString}");
                     return ConditionValue.ConditionType.weatherClear;
             }
         }
 
         private ConditionValue.ConditionType MapToCity(RowData trip)
         {
-            string city = trip.data["city"].ToString().ToLower();
+            string city = trip.data["city_id"].ToString().ToLower();
 
             switch (city)
             {

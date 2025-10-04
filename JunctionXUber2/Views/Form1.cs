@@ -40,7 +40,8 @@ namespace JunctionXUber2
 
             WomboComboGenerator womboComboGenerator = new WomboComboGenerator();
             DataWorksheet rides_trips = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips);
-            WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas);
+            DataWorksheet weather = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily);
+            WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas, weather);
             Console.Write("");
         }
 
