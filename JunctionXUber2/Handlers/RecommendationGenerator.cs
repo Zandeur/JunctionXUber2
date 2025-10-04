@@ -17,9 +17,9 @@ namespace JunctionXUber2.Handlers
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherClear),
-                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherRain),
-                new ConditionValue(0, CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherSnow)
+                new ConditionValue(CalculateAverageTips(clearTrips), CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherClear),
+                new ConditionValue(CalculateAverageTips(rainTrips), CalculateEarningsPerHour(rainTrips), 0, ConditionValue.ConditionType.weatherRain),
+                new ConditionValue(CalculateAverageTips(snowTrips), CalculateEarningsPerHour(snowTrips), 0, ConditionValue.ConditionType.weatherSnow)
             };
 
             return new Recommendation(results);
@@ -47,11 +47,11 @@ namespace JunctionXUber2.Handlers
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(0, CalculateEarningsPerHour(city1Trips), 0, ConditionValue.ConditionType.city1),
-                new ConditionValue(0, CalculateEarningsPerHour(city2Trips), 0, ConditionValue.ConditionType.city2),
-                new ConditionValue(0, CalculateEarningsPerHour(city3Trips), 0, ConditionValue.ConditionType.city3),
-                new ConditionValue(0, CalculateEarningsPerHour(city4Trips), 0, ConditionValue.ConditionType.city4),
-                new ConditionValue(0, CalculateEarningsPerHour(city5Trips), 0, ConditionValue.ConditionType.city5)
+                new ConditionValue(CalculateAverageTips(city1Trips), CalculateEarningsPerHour(city1Trips), 0, ConditionValue.ConditionType.city1),
+                new ConditionValue(CalculateAverageTips(city2Trips), CalculateEarningsPerHour(city2Trips), 0, ConditionValue.ConditionType.city2),
+                new ConditionValue(CalculateAverageTips(city3Trips), CalculateEarningsPerHour(city3Trips), 0, ConditionValue.ConditionType.city3),
+                new ConditionValue(CalculateAverageTips(city4Trips), CalculateEarningsPerHour(city4Trips), 0, ConditionValue.ConditionType.city4),
+                new ConditionValue(CalculateAverageTips(city5Trips), CalculateEarningsPerHour(city5Trips), 0, ConditionValue.ConditionType.city5)
             };
 
             return new Recommendation(results);
@@ -74,10 +74,10 @@ namespace JunctionXUber2.Handlers
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(0, CalculateEarningsPerHour(distance3Trips), 0, ConditionValue.ConditionType.distance3),
-                new ConditionValue(0, CalculateEarningsPerHour(distance37Trips), 0, ConditionValue.ConditionType.distance37),
-                new ConditionValue(0, CalculateEarningsPerHour(distance710Trips), 0, ConditionValue.ConditionType.distance710),
-                new ConditionValue(0, CalculateEarningsPerHour(distance10Trips), 0, ConditionValue.ConditionType.distance10)
+                new ConditionValue(CalculateAverageTips(distance3Trips), CalculateEarningsPerHour(distance3Trips), 0, ConditionValue.ConditionType.distance3),
+                new ConditionValue(CalculateAverageTips(distance37Trips), CalculateEarningsPerHour(distance37Trips), 0, ConditionValue.ConditionType.distance37),
+                new ConditionValue(CalculateAverageTips(distance710Trips), CalculateEarningsPerHour(distance710Trips), 0, ConditionValue.ConditionType.distance710),
+                new ConditionValue(CalculateAverageTips(distance10Trips), CalculateEarningsPerHour(distance10Trips), 0, ConditionValue.ConditionType.distance10)
             };
 
             return new Recommendation(results);
@@ -128,6 +128,16 @@ namespace JunctionXUber2.Handlers
                 return earningsPerHour;
             }).ToList();
 
+            return values.Count() > 0 ? values.Average() : -1;
+        }
+
+        private double CalculateAverageTips(List<RowData> trips)
+        {
+            List<double> values = trips.Select(trip =>
+            {
+                double tip = double.Parse(trip.data["tips"]);
+                return tip;
+            }).ToList();
             return values.Count() > 0 ? values.Average() : -1;
         }
     }
