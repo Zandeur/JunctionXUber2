@@ -67,6 +67,7 @@ namespace JunctionXUber2.Handlers
             List<RowData> city4Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city4);
             List<RowData> city5Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city5);
 
+
             List<ConditionValue> results = new List<ConditionValue>
             {
                 new ConditionValue(CalculateAverageTips(city1Trips), CalculateEarningsPerHour(city1Trips), CalculateTripsPerDay(city1Trips), ConditionValue.ConditionType.city1),
@@ -165,13 +166,19 @@ namespace JunctionXUber2.Handlers
 
         private double CalculateTripsPerDay(List<RowData> trips)
         {
-            List<double> values = trips.Select(trip =>
+            var values = trips.Select(trip =>
             {
-
-                string amount = trip.data["trips_count"];
-                return double.Parse(amount);
+                string startString = trip.data["start_time"];
+                DateTime startTime = DateTime.ParseExact(startString, "yyyy-MM-dd HH:mm:ss", null);
+                return startTime;
             }).ToList();
-            return values.Count() > 0 ? values.Average() : 0;
+
+            int uniqueDays = values
+                .Select(t => t.Date)
+                .Distinct()
+                .Count();
+
+            return uniqueDays == 0 ? 0 : (double)values.Count / uniqueDays;
         }
     }
 }
