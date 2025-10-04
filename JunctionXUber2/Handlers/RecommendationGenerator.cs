@@ -17,9 +17,9 @@ namespace JunctionXUber2.Handlers
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(CalculateAverageTips(clearTrips), CalculateEarningsPerHour(clearTrips), 0, ConditionValue.ConditionType.weatherClear),
-                new ConditionValue(CalculateAverageTips(rainTrips), CalculateEarningsPerHour(rainTrips), 0, ConditionValue.ConditionType.weatherRain),
-                new ConditionValue(CalculateAverageTips(snowTrips), CalculateEarningsPerHour(snowTrips), 0, ConditionValue.ConditionType.weatherSnow)
+                new ConditionValue(CalculateAverageTips(clearTrips), CalculateEarningsPerHour(clearTrips), CalculateTripsPerDay(clearTrips), ConditionValue.ConditionType.weatherClear),
+                new ConditionValue(CalculateAverageTips(rainTrips), CalculateEarningsPerHour(rainTrips), CalculateTripsPerDay(rainTrips), ConditionValue.ConditionType.weatherRain),
+                new ConditionValue(CalculateAverageTips(snowTrips), CalculateEarningsPerHour(snowTrips), CalculateTripsPerDay(snowTrips), ConditionValue.ConditionType.weatherSnow)
             };
 
             return new Recommendation(results);
@@ -47,11 +47,11 @@ namespace JunctionXUber2.Handlers
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(CalculateAverageTips(city1Trips), CalculateEarningsPerHour(city1Trips), 0, ConditionValue.ConditionType.city1),
-                new ConditionValue(CalculateAverageTips(city2Trips), CalculateEarningsPerHour(city2Trips), 0, ConditionValue.ConditionType.city2),
-                new ConditionValue(CalculateAverageTips(city3Trips), CalculateEarningsPerHour(city3Trips), 0, ConditionValue.ConditionType.city3),
-                new ConditionValue(CalculateAverageTips(city4Trips), CalculateEarningsPerHour(city4Trips), 0, ConditionValue.ConditionType.city4),
-                new ConditionValue(CalculateAverageTips(city5Trips), CalculateEarningsPerHour(city5Trips), 0, ConditionValue.ConditionType.city5)
+                new ConditionValue(CalculateAverageTips(city1Trips), CalculateEarningsPerHour(city1Trips), CalculateTripsPerDay(city1Trips), ConditionValue.ConditionType.city1),
+                new ConditionValue(CalculateAverageTips(city2Trips), CalculateEarningsPerHour(city2Trips), CalculateTripsPerDay(city2Trips), ConditionValue.ConditionType.city2),
+                new ConditionValue(CalculateAverageTips(city3Trips), CalculateEarningsPerHour(city3Trips), CalculateTripsPerDay(city3Trips), ConditionValue.ConditionType.city3),
+                new ConditionValue(CalculateAverageTips(city4Trips), CalculateEarningsPerHour(city4Trips), CalculateTripsPerDay(city4Trips), ConditionValue.ConditionType.city4),
+                new ConditionValue(CalculateAverageTips(city5Trips), CalculateEarningsPerHour(city5Trips), CalculateTripsPerDay(city5Trips), ConditionValue.ConditionType.city5)
             };
 
             return new Recommendation(results);
@@ -74,10 +74,10 @@ namespace JunctionXUber2.Handlers
 
             List<ConditionValue> results = new List<ConditionValue>
             {
-                new ConditionValue(CalculateAverageTips(distance3Trips), CalculateEarningsPerHour(distance3Trips), 0, ConditionValue.ConditionType.distance3),
-                new ConditionValue(CalculateAverageTips(distance37Trips), CalculateEarningsPerHour(distance37Trips), 0, ConditionValue.ConditionType.distance37),
-                new ConditionValue(CalculateAverageTips(distance710Trips), CalculateEarningsPerHour(distance710Trips), 0, ConditionValue.ConditionType.distance710),
-                new ConditionValue(CalculateAverageTips(distance10Trips), CalculateEarningsPerHour(distance10Trips), 0, ConditionValue.ConditionType.distance10)
+                new ConditionValue(CalculateAverageTips(distance3Trips), CalculateEarningsPerHour(distance3Trips), CalculateAverageTips(distance3Trips), ConditionValue.ConditionType.distance3),
+                new ConditionValue(CalculateAverageTips(distance37Trips), CalculateEarningsPerHour(distance37Trips), CalculateAverageTips(distance37Trips), ConditionValue.ConditionType.distance37),
+                new ConditionValue(CalculateAverageTips(distance710Trips), CalculateEarningsPerHour(distance710Trips), CalculateAverageTips(distance710Trips), ConditionValue.ConditionType.distance710),
+                new ConditionValue(CalculateAverageTips(distance10Trips), CalculateEarningsPerHour(distance10Trips), CalculateAverageTips(distance10Trips), ConditionValue.ConditionType.distance10)
             };
 
             return new Recommendation(results);
@@ -139,6 +139,23 @@ namespace JunctionXUber2.Handlers
                 return tip;
             }).ToList();
             return values.Count() > 0 ? values.Average() : -1;
+        }
+
+        private int CalculateTripsPerDay(List<RowData> trips)
+        {
+            List<DateTime> values = trips.Select(trip =>
+            {
+
+                string startString = trip.data["start_time"];
+                DateTime startTime = DateTime.ParseExact(startString, "yyyy-MM-dd HH:mm:ss", null);
+                return startTime;
+            }).ToList();
+            int uniqueDays = values
+                                .Select(t => DateTime.Parse(t).Date) 
+                                .Distinct()                          
+                                .Count();
+
+            return values.Count() / uniqueDays;
         }
     }
 }
