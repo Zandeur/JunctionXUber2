@@ -37,6 +37,34 @@ namespace JunctionXUber2.Handlers
             });
         }
 
+        public Recommendation GetCityRecommendations(DataWorksheet rides_trips)
+        {
+            List<RowData> city1Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city1);
+            List<RowData> city2Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city2);
+            List<RowData> city3Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city3);
+            List<RowData> city4Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city4);
+            List<RowData> city5Trips = GetAllRidesWithCity(rides_trips, ConditionValue.ConditionType.city5);
+
+            List<ConditionValue> results = new List<ConditionValue>
+            {
+                new ConditionValue(0, CalculateEarningsPerHour(city1Trips), 0, ConditionValue.ConditionType.city1),
+                new ConditionValue(0, CalculateEarningsPerHour(city2Trips), 0, ConditionValue.ConditionType.city2),
+                new ConditionValue(0, CalculateEarningsPerHour(city3Trips), 0, ConditionValue.ConditionType.city3),
+                new ConditionValue(0, CalculateEarningsPerHour(city4Trips), 0, ConditionValue.ConditionType.city4),
+                new ConditionValue(0, CalculateEarningsPerHour(city5Trips), 0, ConditionValue.ConditionType.city5)
+            };
+
+            return new Recommendation(results);
+        }
+
+        private List<RowData> GetAllRidesWithCity(DataWorksheet rides_trips, ConditionValue.ConditionType cityType)
+        {
+            return rides_trips.rowDatas.FindAll(trip =>
+            {
+                return trip.data["city_id"].ToString().Equals(cityType.ToString());
+            });
+        }
+
         private double CalculateEarningsPerHour(List<RowData> trips)
         {
             List<double> values =  trips.Select(trip =>
