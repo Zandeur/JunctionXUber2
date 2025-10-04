@@ -64,5 +64,10 @@ namespace JunctionXUber2.Handlers
             string newLabelText = defaultText.Replace("[money]", cityCondition.euroPerHour.ToString("F2"));
             return newLabelText.Replace("[city]", ConvertCity(cityCondition.type));
         }
+        public string GetOptimalDistance(string defaultText, ConditionValue distanceCondition)
+        {
+            string newLabelText = defaultText.Replace("[money]", distanceCondition.euroPerHour.ToString("F2"));
+            return newLabelText.Replace("[distance]", ConvertDistance(distanceCondition.type));
+        }
     }
 }
