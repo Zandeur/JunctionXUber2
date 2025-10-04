@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -42,6 +42,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCitySuggestion = new MaterialSkin.Controls.MaterialLabel();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelDistanceSuggestion = new MaterialSkin.Controls.MaterialLabel();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxUserId = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -58,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartWeather)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +73,7 @@
             this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Controls.Add(this.tabPage3);
+            this.materialTabControl1.Controls.Add(this.tabPage4);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,7 +92,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(830, 343);
+            this.tabPage1.Size = new System.Drawing.Size(830, 337);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Optimal suggestion";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -118,7 +124,7 @@
             this.labelOptimalSuggestion.Name = "labelOptimalSuggestion";
             this.labelOptimalSuggestion.Size = new System.Drawing.Size(818, 19);
             this.labelOptimalSuggestion.TabIndex = 0;
-            this.labelOptimalSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather] in [" +
+            this.labelOptimalSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] in [" +
     "city], making [distance]km long trips";
             // 
             // tabPage2
@@ -127,7 +133,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(830, 343);
+            this.tabPage2.Size = new System.Drawing.Size(830, 337);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Weather";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -144,7 +150,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 337);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 331);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // labelWeatherSuggestion
@@ -157,22 +163,22 @@
             this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
             this.labelWeatherSuggestion.Size = new System.Drawing.Size(571, 19);
             this.labelWeatherSuggestion.TabIndex = 0;
-            this.labelWeatherSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather]";
+            this.labelWeatherSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather]";
             // 
             // chartWeather
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartWeather.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chartWeather.ChartAreas.Add(chartArea2);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartWeather.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chartWeather.Legends.Add(legend2);
             this.chartWeather.Location = new System.Drawing.Point(3, 22);
             this.chartWeather.Name = "chartWeather";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartWeather.Series.Add(series1);
-            this.chartWeather.Size = new System.Drawing.Size(818, 312);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartWeather.Series.Add(series2);
+            this.chartWeather.Size = new System.Drawing.Size(818, 306);
             this.chartWeather.TabIndex = 1;
             this.chartWeather.Text = "chart1";
             // 
@@ -181,7 +187,7 @@
             this.tabPage3.Controls.Add(this.tableLayoutPanel4);
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(830, 343);
+            this.tabPage3.Size = new System.Drawing.Size(830, 337);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "City";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -197,7 +203,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 343);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 337);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // labelCitySuggestion
@@ -210,7 +216,43 @@
             this.labelCitySuggestion.Name = "labelCitySuggestion";
             this.labelCitySuggestion.Size = new System.Drawing.Size(540, 19);
             this.labelCitySuggestion.TabIndex = 0;
-            this.labelCitySuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [city]";
+            this.labelCitySuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [city]";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 33);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(830, 337);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Distance";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.labelDistanceSuggestion, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(830, 337);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // labelDistanceSuggestion
+            // 
+            this.labelDistanceSuggestion.AutoSize = true;
+            this.labelDistanceSuggestion.Depth = 0;
+            this.labelDistanceSuggestion.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelDistanceSuggestion.Location = new System.Drawing.Point(3, 0);
+            this.labelDistanceSuggestion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelDistanceSuggestion.Name = "labelDistanceSuggestion";
+            this.labelDistanceSuggestion.Size = new System.Drawing.Size(578, 19);
+            this.labelDistanceSuggestion.TabIndex = 0;
+            this.labelDistanceSuggestion.Text = "You have earned on average the most money (€[money]/h) with [distance]km trips";
             // 
             // tableLayoutPanelMain
             // 
@@ -402,6 +444,9 @@
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelMain.PerformLayout();
             this.materialCard1.ResumeLayout(false);
