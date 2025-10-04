@@ -15,13 +15,28 @@ namespace JunctionXUber2.Handlers
     {
         private readonly string filePath = $"{Application.StartupPath}\\Resources\\uber_hackathon_v2_mock_data.xlsx";
 
-        public ExcelReader()
+        public Dataworksheets GetWorksheets()
         {
-            DataTable dt = LoadExcelToDataTable(filePath, "riders");
-            
+            Dataworksheets dataWorksheet = new Dataworksheets();
+
+            dataWorksheet.rides_trips = GetDataworskheet("rides_trips");
+            dataWorksheet.earnings_daily = GetDataworskheet("earnings_daily");
+            dataWorksheet.surge_by_hour = GetDataworskheet("surge_by_hour");
+            dataWorksheet.cancellation_rate = GetDataworskheet("cancellation_rates");
+            dataWorksheet.heatmap = GetDataworskheet("heatmap");
+            dataWorksheet.weather_daily = GetDataworskheet("weather_daily");
+
+            return dataWorksheet;
         }
 
-        public DataTable LoadExcelToDataTable(string filePath, string sheetName)
+        private DataWorksheet GetDataworskheet(string worksheetName)
+        {
+            DataTable dt = LoadExcelToDataTable(filePath, worksheetName);
+            List<Dictionary<string, string>> data = DataTableHandler.ConvertDataTableToDictionary(dt);
+            return new DataWorksheet(worksheetName, data);
+        }
+
+        private DataTable LoadExcelToDataTable(string filePath, string sheetName)
         {
             using (var package = new ExcelPackage(new FileInfo(filePath)))
             {

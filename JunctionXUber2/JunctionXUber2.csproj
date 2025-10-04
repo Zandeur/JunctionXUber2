@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataObjects\DataWorksheet.cs" />
+    <Compile Include="DataObjects\Dataworksheets.cs" />
     <Compile Include="Handlers\DataTableHandler.cs" />
     <Compile Include="Handlers\ExcelReader.cs" />
     <Compile Include="Views\Form1.cs">
@@ -98,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
