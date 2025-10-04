@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -116,7 +116,7 @@
             this.labelOptimalSuggestion.Name = "labelOptimalSuggestion";
             this.labelOptimalSuggestion.Size = new System.Drawing.Size(818, 19);
             this.labelOptimalSuggestion.TabIndex = 0;
-            this.labelOptimalSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather] in [" +
+            this.labelOptimalSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] in [" +
     "city], making [distance]km long trips";
             // 
             // tabPage2
@@ -155,21 +155,21 @@
             this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
             this.labelWeatherSuggestion.Size = new System.Drawing.Size(571, 19);
             this.labelWeatherSuggestion.TabIndex = 0;
-            this.labelWeatherSuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [weather]";
+            this.labelWeatherSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather]";
             // 
             // chartWeather
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartWeather.ChartAreas.Add(chartArea3);
+            chartArea2.Name = "ChartArea1";
+            this.chartWeather.ChartAreas.Add(chartArea2);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chartWeather.Legends.Add(legend3);
+            legend2.Name = "Legend1";
+            this.chartWeather.Legends.Add(legend2);
             this.chartWeather.Location = new System.Drawing.Point(3, 22);
             this.chartWeather.Name = "chartWeather";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartWeather.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartWeather.Series.Add(series2);
             this.chartWeather.Size = new System.Drawing.Size(818, 306);
             this.chartWeather.TabIndex = 1;
             this.chartWeather.Text = "chart1";
@@ -208,7 +208,7 @@
             this.labelCitySuggestion.Name = "labelCitySuggestion";
             this.labelCitySuggestion.Size = new System.Drawing.Size(540, 19);
             this.labelCitySuggestion.TabIndex = 0;
-            this.labelCitySuggestion.Text = "You have earned on average the most money ($[money]/h) when it was [city]";
+            this.labelCitySuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [city]";
             // 
             // tabPage4
             // 
@@ -244,7 +244,7 @@
             this.labelDistanceSuggestion.Name = "labelDistanceSuggestion";
             this.labelDistanceSuggestion.Size = new System.Drawing.Size(578, 19);
             this.labelDistanceSuggestion.TabIndex = 0;
-            this.labelDistanceSuggestion.Text = "You have earned on average the most money ($[money]/h) with [distance]km trips";
+            this.labelDistanceSuggestion.Text = "You have earned on average the most money (€[money]/h) with [distance]km trips";
             // 
             // tableLayoutPanelMain
             // 
