@@ -10,38 +10,38 @@ namespace JunctionXUber2.Handlers
 {
     internal class CustomerEnumConverter
     {
-        public string ConvertDistance(ConditionValue.ConditionType distance)
+        public string ConvertDistance(ConditionValue.DistanceType distance)
         {
             switch(distance)
             {
-                case ConditionValue.ConditionType.distance3: return "<3";
-                case ConditionValue.ConditionType.distance37: return "3-7";
-                case ConditionValue.ConditionType.distance710: return "7-10";
-                case ConditionValue.ConditionType.distance10: return ">10";
+                case ConditionValue.DistanceType.distance3: return "<3";
+                case ConditionValue.DistanceType.distance37: return "3-7";
+                case ConditionValue.DistanceType.distance710: return "7-10";
+                case ConditionValue.DistanceType.distance10: return ">10";
                 default: return "-";
             }
         }
 
-        public string ConvertWeahter(ConditionValue.ConditionType weather)
+        public string ConvertWeahter(ConditionValue.WeatherType weather)
         {
             switch(weather)
             {
-                case ConditionValue.ConditionType.weatherClear: return "clear";
-                case ConditionValue.ConditionType.weatherSnow: return "snowing";
-                case ConditionValue.ConditionType.weatherRain: return "raining";
+                case ConditionValue.WeatherType.weatherClear: return "clear";
+                case ConditionValue.WeatherType.weatherSnow: return "snowing";
+                case ConditionValue.WeatherType.weatherRain: return "raining";
                 default: return "-";
             }
         }
 
-        public string ConvertCity(ConditionValue.ConditionType city)
+        public string ConvertCity(ConditionValue.CityType city)
         {
             switch (city)
             {
-                case ConditionValue.ConditionType.city1: return "city 1";
-                case ConditionValue.ConditionType.city2: return "city 2";
-                case ConditionValue.ConditionType.city3: return "city 3";
-                case ConditionValue.ConditionType.city4: return "city 4";
-                case ConditionValue.ConditionType.city5: return "city 5";
+                case ConditionValue.CityType.city1: return "city 1";
+                case ConditionValue.CityType.city2: return "city 2";
+                case ConditionValue.CityType.city3: return "city 3";
+                case ConditionValue.CityType.city4: return "city 4";
+                case ConditionValue.CityType.city5: return "city 5";
                 default: return "-";
             }
         }
@@ -57,17 +57,17 @@ namespace JunctionXUber2.Handlers
         public string GetOptimalWeather(string defaultText, ConditionValue weatherCondition)
         {
             string newLabelText = defaultText.Replace("[money]", weatherCondition.euroPerHour.ToString("F2"));
-            return newLabelText.Replace("[weather]", ConvertWeahter(weatherCondition.type));
+            return newLabelText.Replace("[weather]", ConvertWeahter(weatherCondition.weatherType));
         }
         public string GetOptimalCity(string defaultText, ConditionValue cityCondition)
         {
             string newLabelText = defaultText.Replace("[money]", cityCondition.euroPerHour.ToString("F2"));
-            return newLabelText.Replace("[city]", ConvertCity(cityCondition.type));
+            return newLabelText.Replace("[city]", ConvertCity(cityCondition.cityType));
         }
         public string GetOptimalDistance(string defaultText, ConditionValue distanceCondition)
         {
             string newLabelText = defaultText.Replace("[money]", distanceCondition.euroPerHour.ToString("F2"));
-            return newLabelText.Replace("[distance]", ConvertDistance(distanceCondition.type));
+            return newLabelText.Replace("[distance]", ConvertDistance(distanceCondition.distanceType));
         }
     }
 }

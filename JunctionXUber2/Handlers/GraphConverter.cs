@@ -17,7 +17,7 @@ namespace JunctionXUber2.Handlers
             series.Points.Clear();
             weatherConditions.OrderBy(w => w.euroPerHour).ToList().ForEach(weatherCondition =>
             {
-                string weatherType = enumConverter.ConvertWeahter(weatherCondition.type);
+                string weatherType = enumConverter.ConvertWeahter(weatherCondition.weatherType);
                 series.Points.AddXY(weatherType, weatherCondition.euroPerHour);
             });
         }
