@@ -142,6 +142,16 @@ namespace JunctionXUber2.Views
             labelWeatherSuggestion.Text = enumConverter.GetOptimalWeather(defaultWeatherLabelString, optimalWeatherCondition);
 
             graphConverter.SetWeatherDataPoints(chartWeather.Series.First(), weatherRecommendation.sortedConditionValues);
+
+            Color lightBlue200 = Color.FromArgb(64, 196, 255);
+            var series = chartWeather.Series.First();
+            series.Color = lightBlue200;
+            foreach (var point in series.Points)
+            {
+                point.Color = lightBlue200;
+                point.MarkerColor = lightBlue200;
+                point.BorderColor = lightBlue200;
+            }
         }
 
         private void UpdateCityRecommendation()
@@ -153,6 +163,16 @@ namespace JunctionXUber2.Views
             labelCitySuggestion.Text = enumConverter.GetOptimalCity(defaultCityLabelString, optimalCityCondition);
 
             graphConverter.SetCityDataPoints(chartCity.Series.First(), cityRecommendation.sortedConditionValues);
+
+            Color lightBlue200 = Color.FromArgb(64, 196, 255);
+            var series = chartCity.Series.First();
+            series.Color = lightBlue200;
+            foreach (var point in series.Points)
+            {
+                point.Color = lightBlue200;
+                point.MarkerColor = lightBlue200;
+                point.BorderColor = lightBlue200;
+            }
         }
 
         private void UpdateDistanceRecommendation()
@@ -164,6 +184,16 @@ namespace JunctionXUber2.Views
             labelDistanceSuggestion.Text = enumConverter.GetOptimalDistance(defaultDistanceString, optimalDistanceCondition);
 
             graphConverter.SetDistanceDataPoints(chartDistance.Series.First(), distanceRecommendation.sortedConditionValues);
+
+            Color lightBlue200 = Color.FromArgb(64, 196, 255);
+            var series = chartDistance.Series.First();
+            series.Color = lightBlue200;
+            foreach (var point in series.Points)
+            {
+                point.Color = lightBlue200;
+                point.MarkerColor = lightBlue200;
+                point.BorderColor = lightBlue200;
+            }
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
