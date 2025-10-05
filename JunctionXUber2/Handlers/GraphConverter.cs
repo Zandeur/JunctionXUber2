@@ -22,6 +22,25 @@ namespace JunctionXUber2.Handlers
                 series.Points.AddXY(weatherType, weatherCondition.euroPerHour);
             });
         }
+
+        public void SetCityDataPoints(Series series, List<ConditionValue> cityConditions)
+        {
+            series.Points.Clear();
+            cityConditions.ForEach(cityCondition =>
+            {
+                string city = cityCondition.cityType.ToString();
+                series.Points.AddXY(city, cityCondition.euroPerHour);
+            });
+        }
+
+        public void SetDistanceDataPoints(Series series, List<ConditionValue> distanceConditions)
+        {
+            series.Points.Clear();
+            distanceConditions.ForEach(distanceCondition =>
+            {
+                string distance = $"{enumConverter.ConvertDistance(distanceCondition.distanceType)} km";
+                series.Points.AddXY(distance, distanceCondition.euroPerHour);
+            });
         public void SetOptimalDataPoints(Series series, DataWorksheet rides_trips, DataWorksheet weather_daily, WomboCombo womboCombo)
         {
             series.Points.Clear();

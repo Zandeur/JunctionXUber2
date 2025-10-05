@@ -107,6 +107,8 @@ namespace JunctionXUber2.Views
 
             ConditionValue optimalCityCondition = cityRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
             labelCitySuggestion.Text = enumConverter.GetOptimalCity(defaultCityLabelString, optimalCityCondition);
+
+            graphConverter.SetCityDataPoints(chartCity.Series.First(), cityRecommendation.sortedConditionValues);
         }
 
         private void UpdateDistanceRecommendation()
@@ -116,6 +118,8 @@ namespace JunctionXUber2.Views
 
             ConditionValue optimalDistanceCondition = distanceRecommendation.sortedConditionValues.OrderByDescending(recommendation => recommendation.euroPerHour).FirstOrDefault();
             labelDistanceSuggestion.Text = enumConverter.GetOptimalDistance(defaultDistanceString, optimalDistanceCondition);
+
+            graphConverter.SetDistanceDataPoints(chartDistance.Series.First(), distanceRecommendation.sortedConditionValues);
         }
 
         private void FormMain_Resize(object sender, EventArgs e)

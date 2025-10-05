@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -52,6 +61,8 @@
             this.textBoxUserId = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.tabSelectorMain = new MaterialSkin.Controls.MaterialTabSelector();
+            this.chartCity = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartDistance = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.optimalchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -64,6 +75,8 @@
             this.tabPage4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDistance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.optimalchart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,6 +178,18 @@
             // 
             // chartWeather
             // 
+            chartArea5.Name = "ChartArea1";
+            this.chartWeather.ChartAreas.Add(chartArea5);
+            this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend5.Name = "Legend1";
+            this.chartWeather.Legends.Add(legend5);
+            this.chartWeather.Location = new System.Drawing.Point(3, 22);
+            this.chartWeather.Name = "chartWeather";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartWeather.Series.Add(series5);
+            this.chartWeather.Size = new System.Drawing.Size(818, 312);
             chartArea2.Name = "ChartArea1";
             this.chartWeather.ChartAreas.Add(chartArea2);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -194,6 +219,7 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.chartCity, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.labelCitySuggestion, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
@@ -230,6 +256,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.chartDistance, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelDistanceSuggestion, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -248,9 +275,9 @@
             this.labelDistanceSuggestion.Location = new System.Drawing.Point(3, 0);
             this.labelDistanceSuggestion.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelDistanceSuggestion.Name = "labelDistanceSuggestion";
-            this.labelDistanceSuggestion.Size = new System.Drawing.Size(578, 19);
+            this.labelDistanceSuggestion.Size = new System.Drawing.Size(582, 19);
             this.labelDistanceSuggestion.TabIndex = 0;
-            this.labelDistanceSuggestion.Text = "You have earned on average the most money (€[money]/h) with [distance]km trips";
+            this.labelDistanceSuggestion.Text = "You have earned on average the most money (€[money]/h) with [distance] km trips";
             // 
             // tableLayoutPanelMain
             // 
@@ -333,6 +360,39 @@
             this.tabSelectorMain.TabIndex = 1;
             this.tabSelectorMain.Text = "materialTabSelector1";
             // 
+            // chartCity
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.chartCity.ChartAreas.Add(chartArea6);
+            this.chartCity.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend6.Name = "Legend1";
+            this.chartCity.Legends.Add(legend6);
+            this.chartCity.Location = new System.Drawing.Point(3, 22);
+            this.chartCity.Name = "chartCity";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "SeriesCity";
+            this.chartCity.Series.Add(series6);
+            this.chartCity.Size = new System.Drawing.Size(824, 318);
+            this.chartCity.TabIndex = 2;
+            this.chartCity.Text = "chart1";
+            // 
+            // chartDistance
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chartDistance.ChartAreas.Add(chartArea4);
+            this.chartDistance.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Name = "Legend1";
+            this.chartDistance.Legends.Add(legend4);
+            this.chartDistance.Location = new System.Drawing.Point(3, 22);
+            this.chartDistance.Name = "chartDistance";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "SeriesDistance";
+            this.chartDistance.Series.Add(series4);
+            this.chartDistance.Size = new System.Drawing.Size(824, 318);
+            this.chartDistance.TabIndex = 3;
+            this.chartDistance.Text = "chart1";
             // optimalchart
             // 
             chartArea1.Name = "ChartArea1";
@@ -375,6 +435,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDistance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.optimalchart)).EndInit();
             this.ResumeLayout(false);
 
@@ -399,6 +461,8 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MaterialSkin.Controls.MaterialLabel labelDistanceSuggestion;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartCity;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDistance;
         private System.Windows.Forms.DataVisualization.Charting.Chart optimalchart;
     }
 }
