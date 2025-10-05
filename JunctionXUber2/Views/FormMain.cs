@@ -38,7 +38,6 @@ namespace JunctionXUber2.Views
 
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
-            // Choose a color scheme (primary, dark primary, light primary, accent, text)
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Grey900, Primary.Grey900,
                 Primary.Cyan300, Accent.LightBlue200,
@@ -52,6 +51,8 @@ namespace JunctionXUber2.Views
 
             AddComboBoxFilters();
         }
+
+
 
         private void AddComboBoxFilters()
         {
@@ -75,11 +76,6 @@ namespace JunctionXUber2.Views
             }
             materialComboBoxCity.Items.Add("-");
             materialComboBoxCity.SelectedIndex = materialComboBoxCity.Items.Count - 1;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void textBoxUserId_TextChanged(object sender, EventArgs e)
@@ -107,8 +103,19 @@ namespace JunctionXUber2.Views
             WomboComboGenerator womboComboGenerator = new WomboComboGenerator();
             DataWorksheet rides_trips = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.rides_trips);
             DataWorksheet weather = dataworksheets.GetDataWorksheetWithName(Dataworksheets.WorksheetName.weather_daily);
-            WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas, weather);
-            if (womboCombo == null) return;
+
+            ConditionValue.WeatherType? selectedWeather = enumConverter.ConvertWeahterString(materialComboBoxWeather.SelectedItem?.ToString());
+            ConditionValue.DistanceType? selectedDistance = enumConverter.ConvertDistanceString(materialComboBoxDistance.SelectedItem?.ToString());
+            ConditionValue.CityType? selectedCity = enumConverter.ConvertCityString(materialComboBoxCity.SelectedItem?.ToString());
+
+            WomboCombo womboCombo = womboComboGenerator.GetOptimalCombination(rides_trips.rowDatas, weather, selectedWeather, selectedCity, selectedDistance);
+            if (womboCombo == null)
+            {
+                optimalchart.Series.First().Points.Clear();
+
+                labelOptimalSuggestion.Text = "You have no previous trips for this combination";
+                return;
+            }
 
             graphConverter.SetOptimalDataPoints(optimalchart.Series.First(), rides_trips, weather, womboCombo);
 
@@ -151,6 +158,21 @@ namespace JunctionXUber2.Views
         private void FormMain_Resize(object sender, EventArgs e)
         {
             tabSelectorMain.Size = new Size(this.Width, tabSelectorMain.Height);
+        }
+
+        private void materialComboBoxWeather_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshUI();
+        }
+
+        private void materialComboBoxCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshUI();
+        }
+
+        private void materialComboBoxDistance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshUI();
         }
     }
 }
