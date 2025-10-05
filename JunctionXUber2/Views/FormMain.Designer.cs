@@ -38,7 +38,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
@@ -146,11 +145,6 @@
             series1.Name = "SeriesOptimal";
             this.optimalchart.Series.Add(series1);
             this.optimalchart.Size = new System.Drawing.Size(818, 229);
-            series5.ChartArea = "ChartAreaOptimal";
-            series5.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series5.Name = "SeriesOptimal";
-            this.optimalchart.Series.Add(series5);
-            this.optimalchart.Size = new System.Drawing.Size(818, 223);
             this.optimalchart.TabIndex = 2;
             this.optimalchart.Text = "chartOptimal";
             // 
