@@ -22,14 +22,37 @@ namespace JunctionXUber2.Handlers
             }
         }
 
+        public ConditionValue.DistanceType? ConvertDistanceString(String distance)
+        {
+            switch (distance)
+            {
+                case "<3": return ConditionValue.DistanceType.distance3;
+                case "3-7": return ConditionValue.DistanceType.distance37;
+                case "7-10": return ConditionValue.DistanceType.distance710;
+                case ">10": return ConditionValue.DistanceType.distance10;
+                default: return null;
+            }
+        }
+
         public string ConvertWeahter(ConditionValue.WeatherType weather)
         {
             switch(weather)
             {
                 case ConditionValue.WeatherType.weatherClear: return "clear";
-                case ConditionValue.WeatherType.weatherSnow: return "snowing";
-                case ConditionValue.WeatherType.weatherRain: return "raining";
+                case ConditionValue.WeatherType.weatherSnow: return "snowy";
+                case ConditionValue.WeatherType.weatherRain: return "rainy";
                 default: return "-";
+            }
+        }
+
+        public ConditionValue.WeatherType? ConvertWeahterString (String weather)
+        {
+            switch (weather)
+            {
+                case "clear": return ConditionValue.WeatherType.weatherClear;
+                case "snowing": return ConditionValue.WeatherType.weatherSnow;
+                case "raining": return ConditionValue.WeatherType.weatherRain;
+                default: return null;
             }
         }
 
@@ -43,6 +66,19 @@ namespace JunctionXUber2.Handlers
                 case ConditionValue.CityType.city4: return "city 4";
                 case ConditionValue.CityType.city5: return "city 5";
                 default: return "-";
+            }
+        }
+
+        public ConditionValue.CityType? ConvertCityString(String city)
+        {
+            switch (city)
+            {
+                case "city 1": return ConditionValue.CityType.city1;
+                case "city 2": return ConditionValue.CityType.city2;
+                case "city 3": return ConditionValue.CityType.city3;
+                case "city 4": return ConditionValue.CityType.city4;
+                case "city 5": return ConditionValue.CityType.city5;
+                default: return null;
             }
         }
 

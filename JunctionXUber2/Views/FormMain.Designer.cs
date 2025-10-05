@@ -37,11 +37,23 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.optimalchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelOptimalSuggestion = new MaterialSkin.Controls.MaterialLabel();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.materialComboBoxDistance = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialComboBoxCity = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialComboBoxWeather = new MaterialSkin.Controls.MaterialComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelWeatherSuggestion = new MaterialSkin.Controls.MaterialLabel();
@@ -58,14 +70,11 @@
             this.textBoxUserId = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.tabSelectorMain = new MaterialSkin.Controls.MaterialTabSelector();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.materialComboBoxWeather = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialComboBoxCity = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialComboBoxDistance = new MaterialSkin.Controls.MaterialComboBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.optimalchart)).BeginInit();
+            this.materialCard1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeather)).BeginInit();
@@ -76,7 +85,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartDistance)).BeginInit();
             this.tableLayoutPanelMain.SuspendLayout();
-            this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -101,10 +109,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(830, 343);
+            this.tabPage1.Size = new System.Drawing.Size(830, 337);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Optimal suggestion";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -123,13 +131,13 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(824, 337);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(824, 331);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // optimalchart
             // 
-            chartArea1.Name = "ChartAreaOptimal";
-            this.optimalchart.ChartAreas.Add(chartArea1);
+            chartArea5.Name = "ChartAreaOptimal";
+            this.optimalchart.ChartAreas.Add(chartArea5);
             this.optimalchart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optimalchart.Location = new System.Drawing.Point(3, 105);
             this.optimalchart.Name = "optimalchart";
@@ -138,6 +146,11 @@
             series1.Name = "SeriesOptimal";
             this.optimalchart.Series.Add(series1);
             this.optimalchart.Size = new System.Drawing.Size(818, 229);
+            series5.ChartArea = "ChartAreaOptimal";
+            series5.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series5.Name = "SeriesOptimal";
+            this.optimalchart.Series.Add(series5);
+            this.optimalchart.Size = new System.Drawing.Size(818, 223);
             this.optimalchart.TabIndex = 2;
             this.optimalchart.Text = "chartOptimal";
             // 
@@ -151,16 +164,102 @@
             this.labelOptimalSuggestion.Name = "labelOptimalSuggestion";
             this.labelOptimalSuggestion.Size = new System.Drawing.Size(818, 19);
             this.labelOptimalSuggestion.TabIndex = 0;
-            this.labelOptimalSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] in [" +
-    "city], making [distance]km long trips";
+            this.labelOptimalSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] weat" +
+    "her in [city], making [distance]km long trips";
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.materialComboBoxDistance);
+            this.materialCard1.Controls.Add(this.materialComboBoxCity);
+            this.materialCard1.Controls.Add(this.materialComboBoxWeather);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(14, 33);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(796, 55);
+            this.materialCard1.TabIndex = 3;
+            // 
+            // materialComboBoxDistance
+            // 
+            this.materialComboBoxDistance.AutoResize = false;
+            this.materialComboBoxDistance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBoxDistance.Depth = 0;
+            this.materialComboBoxDistance.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBoxDistance.DropDownHeight = 174;
+            this.materialComboBoxDistance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBoxDistance.DropDownWidth = 121;
+            this.materialComboBoxDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBoxDistance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBoxDistance.FormattingEnabled = true;
+            this.materialComboBoxDistance.IntegralHeight = false;
+            this.materialComboBoxDistance.ItemHeight = 43;
+            this.materialComboBoxDistance.Location = new System.Drawing.Point(325, 4);
+            this.materialComboBoxDistance.MaxDropDownItems = 4;
+            this.materialComboBoxDistance.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBoxDistance.Name = "materialComboBoxDistance";
+            this.materialComboBoxDistance.Size = new System.Drawing.Size(148, 49);
+            this.materialComboBoxDistance.StartIndex = 0;
+            this.materialComboBoxDistance.TabIndex = 2;
+            this.materialComboBoxDistance.SelectedIndexChanged += new System.EventHandler(this.materialComboBoxDistance_SelectedIndexChanged);
+            // 
+            // materialComboBoxCity
+            // 
+            this.materialComboBoxCity.AutoResize = false;
+            this.materialComboBoxCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBoxCity.Depth = 0;
+            this.materialComboBoxCity.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBoxCity.DropDownHeight = 174;
+            this.materialComboBoxCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBoxCity.DropDownWidth = 121;
+            this.materialComboBoxCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBoxCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBoxCity.FormattingEnabled = true;
+            this.materialComboBoxCity.IntegralHeight = false;
+            this.materialComboBoxCity.ItemHeight = 43;
+            this.materialComboBoxCity.Location = new System.Drawing.Point(171, 4);
+            this.materialComboBoxCity.MaxDropDownItems = 4;
+            this.materialComboBoxCity.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBoxCity.Name = "materialComboBoxCity";
+            this.materialComboBoxCity.Size = new System.Drawing.Size(148, 49);
+            this.materialComboBoxCity.StartIndex = 0;
+            this.materialComboBoxCity.TabIndex = 1;
+            this.materialComboBoxCity.SelectedIndexChanged += new System.EventHandler(this.materialComboBoxCity_SelectedIndexChanged);
+            // 
+            // materialComboBoxWeather
+            // 
+            this.materialComboBoxWeather.AutoResize = false;
+            this.materialComboBoxWeather.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBoxWeather.Depth = 0;
+            this.materialComboBoxWeather.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBoxWeather.DropDownHeight = 174;
+            this.materialComboBoxWeather.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBoxWeather.DropDownWidth = 121;
+            this.materialComboBoxWeather.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBoxWeather.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBoxWeather.FormattingEnabled = true;
+            this.materialComboBoxWeather.IntegralHeight = false;
+            this.materialComboBoxWeather.ItemHeight = 43;
+            this.materialComboBoxWeather.Location = new System.Drawing.Point(17, 4);
+            this.materialComboBoxWeather.MaxDropDownItems = 4;
+            this.materialComboBoxWeather.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBoxWeather.Name = "materialComboBoxWeather";
+            this.materialComboBoxWeather.Size = new System.Drawing.Size(148, 49);
+            this.materialComboBoxWeather.StartIndex = 0;
+            this.materialComboBoxWeather.TabIndex = 0;
+            this.materialComboBoxWeather.SelectedIndexChanged += new System.EventHandler(this.materialComboBoxWeather_SelectedIndexChanged);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(830, 343);
+            this.tabPage2.Size = new System.Drawing.Size(830, 337);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Weather";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -177,7 +276,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 337);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 331);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // labelWeatherSuggestion
@@ -188,30 +287,31 @@
             this.labelWeatherSuggestion.Location = new System.Drawing.Point(3, 0);
             this.labelWeatherSuggestion.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
-            this.labelWeatherSuggestion.Size = new System.Drawing.Size(571, 19);
+            this.labelWeatherSuggestion.Size = new System.Drawing.Size(631, 19);
             this.labelWeatherSuggestion.TabIndex = 0;
-            this.labelWeatherSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather]";
+            this.labelWeatherSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] weat" +
+    "her";
             // 
             // chartWeather
             // 
-            chartArea2.Name = "ChartAreaWeather";
-            this.chartWeather.ChartAreas.Add(chartArea2);
+            chartArea6.Name = "ChartAreaWeather";
+            this.chartWeather.ChartAreas.Add(chartArea6);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartWeather.Location = new System.Drawing.Point(3, 22);
             this.chartWeather.Name = "chartWeather";
-            series2.ChartArea = "ChartAreaWeather";
-            series2.Name = "SeriesWeather";
-            this.chartWeather.Series.Add(series2);
-            this.chartWeather.Size = new System.Drawing.Size(818, 312);
+            series6.ChartArea = "ChartAreaWeather";
+            series6.Name = "SeriesWeather";
+            this.chartWeather.Series.Add(series6);
+            this.chartWeather.Size = new System.Drawing.Size(818, 306);
             this.chartWeather.TabIndex = 1;
             this.chartWeather.Text = "chartWeather";
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(830, 343);
+            this.tabPage3.Size = new System.Drawing.Size(830, 337);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "City";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -228,20 +328,20 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 343);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 337);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // chartCity
             // 
-            chartArea3.Name = "ChartAreaCity";
-            this.chartCity.ChartAreas.Add(chartArea3);
+            chartArea7.Name = "ChartAreaCity";
+            this.chartCity.ChartAreas.Add(chartArea7);
             this.chartCity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartCity.Location = new System.Drawing.Point(3, 22);
             this.chartCity.Name = "chartCity";
-            series3.ChartArea = "ChartAreaCity";
-            series3.Name = "SeriesCity";
-            this.chartCity.Series.Add(series3);
-            this.chartCity.Size = new System.Drawing.Size(824, 318);
+            series7.ChartArea = "ChartAreaCity";
+            series7.Name = "SeriesCity";
+            this.chartCity.Series.Add(series7);
+            this.chartCity.Size = new System.Drawing.Size(824, 312);
             this.chartCity.TabIndex = 2;
             this.chartCity.Text = "chartCity";
             // 
@@ -260,9 +360,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 27);
+            this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(830, 343);
+            this.tabPage4.Size = new System.Drawing.Size(830, 337);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Distance";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -279,20 +379,20 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(830, 343);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(830, 337);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // chartDistance
             // 
-            chartArea4.Name = "ChartAreaDistance";
-            this.chartDistance.ChartAreas.Add(chartArea4);
+            chartArea8.Name = "ChartAreaDistance";
+            this.chartDistance.ChartAreas.Add(chartArea8);
             this.chartDistance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartDistance.Location = new System.Drawing.Point(3, 22);
             this.chartDistance.Name = "chartDistance";
-            series4.ChartArea = "ChartAreaDistance";
-            series4.Name = "SeriesDistance";
-            this.chartDistance.Series.Add(series4);
-            this.chartDistance.Size = new System.Drawing.Size(824, 318);
+            series8.ChartArea = "ChartAreaDistance";
+            series8.Name = "SeriesDistance";
+            this.chartDistance.Series.Add(series8);
+            this.chartDistance.Size = new System.Drawing.Size(824, 312);
             this.chartDistance.TabIndex = 3;
             this.chartDistance.Text = "chartDistance";
             // 
@@ -389,89 +489,6 @@
             this.tabSelectorMain.TabIndex = 1;
             this.tabSelectorMain.Text = "materialTabSelector1";
             // 
-            // materialCard1
-            // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Controls.Add(this.materialComboBoxDistance);
-            this.materialCard1.Controls.Add(this.materialComboBoxCity);
-            this.materialCard1.Controls.Add(this.materialComboBoxWeather);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(14, 33);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(796, 55);
-            this.materialCard1.TabIndex = 3;
-            // 
-            // materialComboBoxWeather
-            // 
-            this.materialComboBoxWeather.AutoResize = false;
-            this.materialComboBoxWeather.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBoxWeather.Depth = 0;
-            this.materialComboBoxWeather.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBoxWeather.DropDownHeight = 174;
-            this.materialComboBoxWeather.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBoxWeather.DropDownWidth = 121;
-            this.materialComboBoxWeather.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBoxWeather.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBoxWeather.FormattingEnabled = true;
-            this.materialComboBoxWeather.IntegralHeight = false;
-            this.materialComboBoxWeather.ItemHeight = 43;
-            this.materialComboBoxWeather.Location = new System.Drawing.Point(17, 4);
-            this.materialComboBoxWeather.MaxDropDownItems = 4;
-            this.materialComboBoxWeather.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBoxWeather.Name = "materialComboBoxWeather";
-            this.materialComboBoxWeather.Size = new System.Drawing.Size(148, 49);
-            this.materialComboBoxWeather.StartIndex = 0;
-            this.materialComboBoxWeather.TabIndex = 0;
-            // 
-            // materialComboBoxCity
-            // 
-            this.materialComboBoxCity.AutoResize = false;
-            this.materialComboBoxCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBoxCity.Depth = 0;
-            this.materialComboBoxCity.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBoxCity.DropDownHeight = 174;
-            this.materialComboBoxCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBoxCity.DropDownWidth = 121;
-            this.materialComboBoxCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBoxCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBoxCity.FormattingEnabled = true;
-            this.materialComboBoxCity.IntegralHeight = false;
-            this.materialComboBoxCity.ItemHeight = 43;
-            this.materialComboBoxCity.Location = new System.Drawing.Point(171, 4);
-            this.materialComboBoxCity.MaxDropDownItems = 4;
-            this.materialComboBoxCity.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBoxCity.Name = "materialComboBoxCity";
-            this.materialComboBoxCity.Size = new System.Drawing.Size(148, 49);
-            this.materialComboBoxCity.StartIndex = 0;
-            this.materialComboBoxCity.TabIndex = 1;
-            // 
-            // materialComboBoxDistance
-            // 
-            this.materialComboBoxDistance.AutoResize = false;
-            this.materialComboBoxDistance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBoxDistance.Depth = 0;
-            this.materialComboBoxDistance.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBoxDistance.DropDownHeight = 174;
-            this.materialComboBoxDistance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBoxDistance.DropDownWidth = 121;
-            this.materialComboBoxDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBoxDistance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBoxDistance.FormattingEnabled = true;
-            this.materialComboBoxDistance.IntegralHeight = false;
-            this.materialComboBoxDistance.ItemHeight = 43;
-            this.materialComboBoxDistance.Location = new System.Drawing.Point(325, 4);
-            this.materialComboBoxDistance.MaxDropDownItems = 4;
-            this.materialComboBoxDistance.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBoxDistance.Name = "materialComboBoxDistance";
-            this.materialComboBoxDistance.Size = new System.Drawing.Size(148, 49);
-            this.materialComboBoxDistance.StartIndex = 0;
-            this.materialComboBoxDistance.TabIndex = 2;
-            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -489,6 +506,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.optimalchart)).EndInit();
+            this.materialCard1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -503,7 +521,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDistance)).EndInit();
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelMain.PerformLayout();
-            this.materialCard1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
