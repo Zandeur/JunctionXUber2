@@ -29,9 +29,9 @@ namespace JunctionXUber2.Handlers
             RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
             List<RowData> tripsWithOptimalWeather = recommendationGenerator.GetAllRidesWithWeather(rides_trips, weather_daily, womboCombo.Weather);
             DataWorksheet optimalWeatherWorksheet = new DataWorksheet(Dataworksheets.WorksheetName.rides_trips, tripsWithOptimalWeather);
-            List<RowData> tripsWithOptimalWeatherAndDistance = recommendationGenerator.GetAllRidesWithDistance(rides_trips, womboCombo.Distance);
+            List<RowData> tripsWithOptimalWeatherAndDistance = recommendationGenerator.GetAllRidesWithDistance(optimalWeatherWorksheet, womboCombo.Distance);
             DataWorksheet optimalWeatherWorksheetAndDistance = new DataWorksheet(Dataworksheets.WorksheetName.rides_trips, tripsWithOptimalWeatherAndDistance);
-            List<RowData> tripsOptimal = recommendationGenerator.GetAllRidesWithCity(rides_trips, womboCombo.City);
+            List<RowData> tripsOptimal = recommendationGenerator.GetAllRidesWithCity(optimalWeatherWorksheetAndDistance, womboCombo.City);
 
             var dailyAverages = tripsOptimal
             .Select(t =>
