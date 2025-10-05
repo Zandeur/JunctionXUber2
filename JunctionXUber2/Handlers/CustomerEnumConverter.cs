@@ -50,8 +50,8 @@ namespace JunctionXUber2.Handlers
             switch (weather)
             {
                 case "clear": return ConditionValue.WeatherType.weatherClear;
-                case "snowing": return ConditionValue.WeatherType.weatherSnow;
-                case "raining": return ConditionValue.WeatherType.weatherRain;
+                case "snowy": return ConditionValue.WeatherType.weatherSnow;
+                case "rainy": return ConditionValue.WeatherType.weatherRain;
                 default: return null;
             }
         }

@@ -101,10 +101,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 33);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(830, 337);
+            this.tabPage1.Size = new System.Drawing.Size(830, 343);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Optimal suggestion";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(824, 331);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(824, 337);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // optimalchart
@@ -137,7 +137,7 @@
             series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             series1.Name = "SeriesOptimal";
             this.optimalchart.Series.Add(series1);
-            this.optimalchart.Size = new System.Drawing.Size(818, 223);
+            this.optimalchart.Size = new System.Drawing.Size(818, 229);
             this.optimalchart.TabIndex = 2;
             this.optimalchart.Text = "chartOptimal";
             // 
@@ -243,10 +243,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(830, 337);
+            this.tabPage2.Size = new System.Drawing.Size(830, 343);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Weather";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 331);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 337);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // labelWeatherSuggestion
@@ -289,16 +289,16 @@
             series2.ChartArea = "ChartAreaWeather";
             series2.Name = "SeriesWeather";
             this.chartWeather.Series.Add(series2);
-            this.chartWeather.Size = new System.Drawing.Size(818, 306);
+            this.chartWeather.Size = new System.Drawing.Size(818, 312);
             this.chartWeather.TabIndex = 1;
             this.chartWeather.Text = "chartWeather";
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 33);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(830, 337);
+            this.tabPage3.Size = new System.Drawing.Size(830, 343);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "City";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -315,7 +315,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 337);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 343);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // chartCity
@@ -328,7 +328,7 @@
             series3.ChartArea = "ChartAreaCity";
             series3.Name = "SeriesCity";
             this.chartCity.Series.Add(series3);
-            this.chartCity.Size = new System.Drawing.Size(824, 312);
+            this.chartCity.Size = new System.Drawing.Size(824, 318);
             this.chartCity.TabIndex = 2;
             this.chartCity.Text = "chartCity";
             // 
@@ -347,9 +347,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 33);
+            this.tabPage4.Location = new System.Drawing.Point(4, 27);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(830, 337);
+            this.tabPage4.Size = new System.Drawing.Size(830, 343);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Distance";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -366,7 +366,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(830, 337);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(830, 343);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // chartDistance
@@ -379,7 +379,7 @@
             series4.ChartArea = "ChartAreaDistance";
             series4.Name = "SeriesDistance";
             this.chartDistance.Series.Add(series4);
-            this.chartDistance.Size = new System.Drawing.Size(824, 312);
+            this.chartDistance.Size = new System.Drawing.Size(824, 318);
             this.chartDistance.TabIndex = 3;
             this.chartDistance.Text = "chartDistance";
             // 

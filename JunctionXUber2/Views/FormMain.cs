@@ -130,7 +130,6 @@ namespace JunctionXUber2.Views
                 point.BorderColor = lightBlue200;
             }
 
-
             labelOptimalSuggestion.Text = enumConverter.GetOptimalSuggestion(defaultOptimalString, womboCombo);
         }
 
