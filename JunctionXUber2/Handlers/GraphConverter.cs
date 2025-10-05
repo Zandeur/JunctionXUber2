@@ -41,6 +41,8 @@ namespace JunctionXUber2.Handlers
                 string distance = $"{enumConverter.ConvertDistance(distanceCondition.distanceType)} km";
                 series.Points.AddXY(distance, distanceCondition.euroPerHour);
             });
+        }
+
         public void SetOptimalDataPoints(Series series, DataWorksheet rides_trips, DataWorksheet weather_daily, WomboCombo womboCombo)
         {
             series.Points.Clear();
