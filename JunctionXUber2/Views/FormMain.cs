@@ -114,6 +114,7 @@ namespace JunctionXUber2.Views
                 optimalchart.Series.First().Points.Clear();
 
                 labelOptimalSuggestion.Text = "You have no previous trips for this combination";
+                graphConverter.SetOptimalDataPoints(optimalchart.Series.First(), rides_trips, weather, womboCombo);
                 return;
             }
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace JunctionXUber2.Handlers
@@ -45,6 +46,11 @@ namespace JunctionXUber2.Handlers
 
         public void SetOptimalDataPoints(Series series, DataWorksheet rides_trips, DataWorksheet weather_daily, WomboCombo womboCombo)
         {
+            if(womboCombo == null)
+            {
+                series.Points.AddXY(0,0);
+                return;
+            }
             series.Points.Clear();
 
             RecommendationGenerator recommendationGenerator = new RecommendationGenerator();
