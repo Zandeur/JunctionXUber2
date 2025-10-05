@@ -36,6 +36,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -133,7 +134,7 @@
             this.optimalchart.Location = new System.Drawing.Point(3, 105);
             this.optimalchart.Name = "optimalchart";
             series1.ChartArea = "ChartAreaOptimal";
-            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             series1.Name = "SeriesOptimal";
             this.optimalchart.Series.Add(series1);
             this.optimalchart.Size = new System.Drawing.Size(818, 229);
@@ -477,6 +478,7 @@
             this.ClientSize = new System.Drawing.Size(914, 610);
             this.Controls.Add(this.tabSelectorMain);
             this.Controls.Add(this.tableLayoutPanelMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Uber Insights";

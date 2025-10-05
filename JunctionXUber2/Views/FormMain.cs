@@ -55,26 +55,26 @@ namespace JunctionXUber2.Views
 
         private void AddComboBoxFilters()
         {
+            materialComboBoxWeather.Items.Add("-");
             foreach (ConditionValue.WeatherType weather in Enum.GetValues(typeof(ConditionValue.WeatherType)))
             {
                 materialComboBoxWeather.Items.Add(enumConverter.ConvertWeahter(weather));
             }
-            materialComboBoxWeather.Items.Add("-");
-            materialComboBoxWeather.SelectedIndex = materialComboBoxWeather.Items.Count - 1;
+            materialComboBoxWeather.SelectedIndex = 0;
 
+            materialComboBoxDistance.Items.Add("-");
             foreach (ConditionValue.DistanceType distance in Enum.GetValues(typeof(ConditionValue.DistanceType)))
             {
                 materialComboBoxDistance.Items.Add(enumConverter.ConvertDistance(distance));
             }
-            materialComboBoxDistance.Items.Add("-");
-            materialComboBoxDistance.SelectedIndex = materialComboBoxDistance.Items.Count - 1;
+            materialComboBoxDistance.SelectedIndex = 0;
 
+            materialComboBoxCity.Items.Add("-");
             foreach (ConditionValue.CityType city in Enum.GetValues(typeof(ConditionValue.CityType)))
             {
                 materialComboBoxCity.Items.Add(enumConverter.ConvertCity(city));
             }
-            materialComboBoxCity.Items.Add("-");
-            materialComboBoxCity.SelectedIndex = materialComboBoxCity.Items.Count - 1;
+            materialComboBoxCity.SelectedIndex = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
