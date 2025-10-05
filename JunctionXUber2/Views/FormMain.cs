@@ -119,6 +119,17 @@ namespace JunctionXUber2.Views
 
             graphConverter.SetOptimalDataPoints(optimalchart.Series.First(), rides_trips, weather, womboCombo);
 
+            Color lightBlue200 = Color.FromArgb(64, 196, 255);
+            var series = optimalchart.Series.First();
+            series.Color = lightBlue200;
+            foreach (var point in series.Points)
+            {
+                point.Color = lightBlue200;
+                point.MarkerColor = lightBlue200;
+                point.BorderColor = lightBlue200;
+            }
+
+
             labelOptimalSuggestion.Text = enumConverter.GetOptimalSuggestion(defaultOptimalString, womboCombo);
         }
 
