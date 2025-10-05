@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -127,14 +127,15 @@
             // 
             // optimalchart
             // 
-            chartArea5.Name = "ChartAreaOptimal";
-            this.optimalchart.ChartAreas.Add(chartArea5);
+            chartArea1.Name = "ChartAreaOptimal";
+            this.optimalchart.ChartAreas.Add(chartArea1);
             this.optimalchart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optimalchart.Location = new System.Drawing.Point(3, 105);
             this.optimalchart.Name = "optimalchart";
-            series5.ChartArea = "ChartAreaOptimal";
-            series5.Name = "SeriesOptimal";
-            this.optimalchart.Series.Add(series5);
+            series1.ChartArea = "ChartAreaOptimal";
+            series1.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.Name = "SeriesOptimal";
+            this.optimalchart.Series.Add(series1);
             this.optimalchart.Size = new System.Drawing.Size(818, 229);
             this.optimalchart.TabIndex = 2;
             this.optimalchart.Text = "chartOptimal";
@@ -192,14 +193,14 @@
             // 
             // chartWeather
             // 
-            chartArea6.Name = "ChartAreaWeather";
-            this.chartWeather.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartAreaWeather";
+            this.chartWeather.ChartAreas.Add(chartArea2);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartWeather.Location = new System.Drawing.Point(3, 22);
             this.chartWeather.Name = "chartWeather";
-            series6.ChartArea = "ChartAreaWeather";
-            series6.Name = "SeriesWeather";
-            this.chartWeather.Series.Add(series6);
+            series2.ChartArea = "ChartAreaWeather";
+            series2.Name = "SeriesWeather";
+            this.chartWeather.Series.Add(series2);
             this.chartWeather.Size = new System.Drawing.Size(818, 312);
             this.chartWeather.TabIndex = 1;
             this.chartWeather.Text = "chartWeather";
@@ -231,14 +232,14 @@
             // 
             // chartCity
             // 
-            chartArea7.Name = "ChartAreaCity";
-            this.chartCity.ChartAreas.Add(chartArea7);
+            chartArea3.Name = "ChartAreaCity";
+            this.chartCity.ChartAreas.Add(chartArea3);
             this.chartCity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartCity.Location = new System.Drawing.Point(3, 22);
             this.chartCity.Name = "chartCity";
-            series7.ChartArea = "ChartAreaCity";
-            series7.Name = "SeriesCity";
-            this.chartCity.Series.Add(series7);
+            series3.ChartArea = "ChartAreaCity";
+            series3.Name = "SeriesCity";
+            this.chartCity.Series.Add(series3);
             this.chartCity.Size = new System.Drawing.Size(824, 318);
             this.chartCity.TabIndex = 2;
             this.chartCity.Text = "chartCity";
@@ -282,14 +283,14 @@
             // 
             // chartDistance
             // 
-            chartArea8.Name = "ChartAreaDistance";
-            this.chartDistance.ChartAreas.Add(chartArea8);
+            chartArea4.Name = "ChartAreaDistance";
+            this.chartDistance.ChartAreas.Add(chartArea4);
             this.chartDistance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartDistance.Location = new System.Drawing.Point(3, 22);
             this.chartDistance.Name = "chartDistance";
-            series8.ChartArea = "ChartAreaDistance";
-            series8.Name = "SeriesDistance";
-            this.chartDistance.Series.Add(series8);
+            series4.ChartArea = "ChartAreaDistance";
+            series4.Name = "SeriesDistance";
+            this.chartDistance.Series.Add(series4);
             this.chartDistance.Size = new System.Drawing.Size(824, 318);
             this.chartDistance.TabIndex = 3;
             this.chartDistance.Text = "chartDistance";
@@ -440,7 +441,7 @@
             this.materialComboBoxCity.FormattingEnabled = true;
             this.materialComboBoxCity.IntegralHeight = false;
             this.materialComboBoxCity.ItemHeight = 43;
-            this.materialComboBoxCity.Location = new System.Drawing.Point(171, 3);
+            this.materialComboBoxCity.Location = new System.Drawing.Point(171, 4);
             this.materialComboBoxCity.MaxDropDownItems = 4;
             this.materialComboBoxCity.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxCity.Name = "materialComboBoxCity";

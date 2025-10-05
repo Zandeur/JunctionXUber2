@@ -49,6 +49,32 @@ namespace JunctionXUber2.Views
             defaultWeatherLabelString = labelWeatherSuggestion.Text;
             defaultCityLabelString = labelCitySuggestion.Text;
             defaultDistanceString = labelDistanceSuggestion.Text;
+
+            AddComboBoxFilters();
+        }
+
+        private void AddComboBoxFilters()
+        {
+            foreach (ConditionValue.WeatherType weather in Enum.GetValues(typeof(ConditionValue.WeatherType)))
+            {
+                materialComboBoxWeather.Items.Add(enumConverter.ConvertWeahter(weather));
+            }
+            materialComboBoxWeather.Items.Add("-");
+            materialComboBoxWeather.SelectedIndex = materialComboBoxWeather.Items.Count - 1;
+
+            foreach (ConditionValue.DistanceType distance in Enum.GetValues(typeof(ConditionValue.DistanceType)))
+            {
+                materialComboBoxDistance.Items.Add(enumConverter.ConvertDistance(distance));
+            }
+            materialComboBoxDistance.Items.Add("-");
+            materialComboBoxDistance.SelectedIndex = materialComboBoxDistance.Items.Count - 1;
+
+            foreach (ConditionValue.CityType city in Enum.GetValues(typeof(ConditionValue.CityType)))
+            {
+                materialComboBoxCity.Items.Add(enumConverter.ConvertCity(city));
+            }
+            materialComboBoxCity.Items.Add("-");
+            materialComboBoxCity.SelectedIndex = materialComboBoxCity.Items.Count - 1;
         }
 
         private void Form1_Load(object sender, EventArgs e)
