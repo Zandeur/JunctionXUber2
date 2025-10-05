@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -100,10 +100,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(830, 332);
+            this.tabPage1.Size = new System.Drawing.Size(830, 337);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Optimal suggestion";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -122,21 +122,21 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(824, 326);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(824, 331);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // optimalchart
             // 
-            chartArea13.Name = "ChartAreaOptimal";
-            this.optimalchart.ChartAreas.Add(chartArea13);
+            chartArea5.Name = "ChartAreaOptimal";
+            this.optimalchart.ChartAreas.Add(chartArea5);
             this.optimalchart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optimalchart.Location = new System.Drawing.Point(3, 105);
             this.optimalchart.Name = "optimalchart";
-            series13.ChartArea = "ChartAreaOptimal";
-            series13.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series13.Name = "SeriesOptimal";
-            this.optimalchart.Series.Add(series13);
-            this.optimalchart.Size = new System.Drawing.Size(818, 218);
+            series5.ChartArea = "ChartAreaOptimal";
+            series5.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series5.Name = "SeriesOptimal";
+            this.optimalchart.Series.Add(series5);
+            this.optimalchart.Size = new System.Drawing.Size(818, 223);
             this.optimalchart.TabIndex = 2;
             this.optimalchart.Text = "chartOptimal";
             // 
@@ -150,8 +150,8 @@
             this.labelOptimalSuggestion.Name = "labelOptimalSuggestion";
             this.labelOptimalSuggestion.Size = new System.Drawing.Size(818, 19);
             this.labelOptimalSuggestion.TabIndex = 0;
-            this.labelOptimalSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] in [" +
-    "city], making [distance]km long trips";
+            this.labelOptimalSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] weat" +
+    "her in [city], making [distance]km long trips";
             // 
             // materialCard1
             // 
@@ -242,10 +242,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(830, 332);
+            this.tabPage2.Size = new System.Drawing.Size(830, 337);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Weather";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -262,7 +262,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 326);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 331);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // labelWeatherSuggestion
@@ -273,30 +273,31 @@
             this.labelWeatherSuggestion.Location = new System.Drawing.Point(3, 0);
             this.labelWeatherSuggestion.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelWeatherSuggestion.Name = "labelWeatherSuggestion";
-            this.labelWeatherSuggestion.Size = new System.Drawing.Size(571, 19);
+            this.labelWeatherSuggestion.Size = new System.Drawing.Size(631, 19);
             this.labelWeatherSuggestion.TabIndex = 0;
-            this.labelWeatherSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather]";
+            this.labelWeatherSuggestion.Text = "You have earned on average the most money (€[money]/h) when it was [weather] weat" +
+    "her";
             // 
             // chartWeather
             // 
-            chartArea14.Name = "ChartAreaWeather";
-            this.chartWeather.ChartAreas.Add(chartArea14);
+            chartArea6.Name = "ChartAreaWeather";
+            this.chartWeather.ChartAreas.Add(chartArea6);
             this.chartWeather.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartWeather.Location = new System.Drawing.Point(3, 22);
             this.chartWeather.Name = "chartWeather";
-            series14.ChartArea = "ChartAreaWeather";
-            series14.Name = "SeriesWeather";
-            this.chartWeather.Series.Add(series14);
-            this.chartWeather.Size = new System.Drawing.Size(818, 301);
+            series6.ChartArea = "ChartAreaWeather";
+            series6.Name = "SeriesWeather";
+            this.chartWeather.Series.Add(series6);
+            this.chartWeather.Size = new System.Drawing.Size(818, 306);
             this.chartWeather.TabIndex = 1;
             this.chartWeather.Text = "chartWeather";
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 38);
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(830, 332);
+            this.tabPage3.Size = new System.Drawing.Size(830, 337);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "City";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -313,20 +314,20 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 332);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(830, 337);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // chartCity
             // 
-            chartArea15.Name = "ChartAreaCity";
-            this.chartCity.ChartAreas.Add(chartArea15);
+            chartArea7.Name = "ChartAreaCity";
+            this.chartCity.ChartAreas.Add(chartArea7);
             this.chartCity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartCity.Location = new System.Drawing.Point(3, 22);
             this.chartCity.Name = "chartCity";
-            series15.ChartArea = "ChartAreaCity";
-            series15.Name = "SeriesCity";
-            this.chartCity.Series.Add(series15);
-            this.chartCity.Size = new System.Drawing.Size(824, 307);
+            series7.ChartArea = "ChartAreaCity";
+            series7.Name = "SeriesCity";
+            this.chartCity.Series.Add(series7);
+            this.chartCity.Size = new System.Drawing.Size(824, 312);
             this.chartCity.TabIndex = 2;
             this.chartCity.Text = "chartCity";
             // 
@@ -345,9 +346,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 38);
+            this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(830, 332);
+            this.tabPage4.Size = new System.Drawing.Size(830, 337);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Distance";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -364,20 +365,20 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(830, 332);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(830, 337);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // chartDistance
             // 
-            chartArea16.Name = "ChartAreaDistance";
-            this.chartDistance.ChartAreas.Add(chartArea16);
+            chartArea8.Name = "ChartAreaDistance";
+            this.chartDistance.ChartAreas.Add(chartArea8);
             this.chartDistance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartDistance.Location = new System.Drawing.Point(3, 22);
             this.chartDistance.Name = "chartDistance";
-            series16.ChartArea = "ChartAreaDistance";
-            series16.Name = "SeriesDistance";
-            this.chartDistance.Series.Add(series16);
-            this.chartDistance.Size = new System.Drawing.Size(824, 307);
+            series8.ChartArea = "ChartAreaDistance";
+            series8.Name = "SeriesDistance";
+            this.chartDistance.Series.Add(series8);
+            this.chartDistance.Size = new System.Drawing.Size(824, 312);
             this.chartDistance.TabIndex = 3;
             this.chartDistance.Text = "chartDistance";
             // 
